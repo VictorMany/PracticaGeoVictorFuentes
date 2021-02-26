@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Obtiene Coordenadas</title>
+</head>
+
+<body>
+    <h1>API para obtener coordenadas</h1>
+    <p>Haz clic para poder obtener las coordenadas de tu dispositivo</p>
+
+    <button style="border-radius: 0.5rem; color: white; background-color: rgb(29, 149, 170);"
+        onclick="getLocation()">Obtener Coordenadas</button>
+    <p id="demo"></p>
+    <script>
+        var x = document.getElementById("demo");
+
+        function getLocation() {
+
+            if (navigator.geolocation) {
+                navigator.geolocation.getCurrentPosition(showPosition);
+            } else {
+                x.innerHTML = "El navegador no tiene la capacidad de geolocalización";
+            }
+        }
+
+        function showPosition(position) {
+            x.innerHTML = "Latitude: " + position.coords.latitude +
+                "<br>Longitude: " + position.coords.longitude;
+        }
+    </script>
+</body>
+
+</html>
+
+<style>
+    p {
+        color: rgb(56, 56, 56);
+        font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    }
+
+    button {
+        height: 50px;
+        font-size: 1rem;
+    }
+
+    h1 {
+        color: rgb(56, 56, 56);
+        font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+
+    }
+</style>
