@@ -5,46 +5,50 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Marcador</title>
+    <title>Marcadores</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl" crossorigin="anonymous">
 
 </head>
 
 <body>
+
     <div class="container-fluid">
-        <div class="container bg-white" style="border-radius: 1rem;">
-            <div class="row m-5">
-                <div class="col-12 p-5">
-                    <h1 style="color: rgb(83, 83, 83);">Marcador de Google</h1>
-                    <div id="mapa">
-                    </div>
+        <div class="container">
+            <h1>Marcadores de Google</h1>
+            <div class="row">
+                <div class="col-12">
+                    <div id="mapa"></div>
                 </div>
             </div>
         </div>
     </div>
 
-    <script
-        src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAv-m46ebIV9fqkE2fIBGeWunmGmBm2R24&callback=iniciaMapa"
-        async defer></script>
 
+
+    <!-- Bootstrap 5 beta -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-b5kHyXgcpbZJO/tY9Ul7kGkf1S0CWuKcCD38l8YkeH8z8QjE0GmW1gYU5S9FOnJ0"
         crossorigin="anonymous"></script>
 
-</body>
+    <!-- Google Maps -->
+    <script
+        src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAv-m46ebIV9fqkE2fIBGeWunmGmBm2R24&callback=iniciaMapa"
+        async defer></script>
 
-<!-- Google Maps -->
+
+</body>
 
 </html>
 
 
+
 <style>
     body {
-        background-color: rgb(255, 249, 249);
+        background-color: #efefef;
     }
 
-    #mapa {
+    #map {
         width: 100%;
         height: 600px;
     }
@@ -53,38 +57,39 @@
 
 
 <script>
-    function iniciaMapa() {
-        alert("Si entra");
+    var informacion = "<h1>Universidad DeLaSalle Bajío AC.</h1>"
+    informacion += "<p><strong>Dirección:</strong> Avenida Universidad 602, Lomas del Campestre, 37150 León, Gto, México.</p>"
+    informacion += "<p><strong>Teléfono:</strong>477 710 8500.</p>"
 
+    function iniciaMapa() {
         var propiedades = {
             center: {
-                lat: 21.277566, lng: -101.808784
+                lat: 21.152639, lng: -101.711598
             },
             zoom: 14
-        }
-
-
-        const mapa = document.getElementById("mapa");
-        const map = new google.maps.Map(mapa, propiedades);
-
+        };
+        const mapa = document.getElementById("mapa")
+        const map = new google.maps.Map(mapa, propiedades)
         if (navigator.geolocation) {
-
-            navigator.geolocation.getCurrentPosition(posicion => {
+            navigator.geolocation.getCurrentPosition(position => {
                 let posicion = {
                     lat: position.coords.latitude,
-                    lon: position.coords.longitude,
+                    lng: position.coords.longitude
                 }
-                const marker = new google.maps.Marker({
+                let propiedadesMarcador = {
                     position: posicion,
                     map,
-                    title: "Mi marcador"
+                    title: "Marcardor"
+                }
+                const marcador = new google.maps.Marker(propiedadesMarcador);
+                map.setCenter(posicion)
+                const infowindow = new google.maps.InfoWindow({
+                    content: informacion
+                })
+                marcador.addListener("click", () => {
+                    infowindow.open(map, marcador);
                 })
             })
         }
-
-
-
-
     }
-
 </script>
