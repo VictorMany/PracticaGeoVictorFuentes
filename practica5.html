@@ -59,23 +59,10 @@
 </style>
 
 
-<style>
-    body {
-        background-color: #efefef;
-    }
-
-    #mapa {
-        width: 100%;
-        height: 600px;
-    }
-</style>
-
-
-
 <script>
-    var informacion = "<h1>JARAMILLO DE ARRIBA (MI CASA,SU CASA).</h1>"
-    informacion += "<p><strong>Dirección:</strong> Jaramillo de Arriba, Carretera Lagos - León KM29, Lagos de Moreno Jalisco</p>"
-    informacion += "<p><strong>Teléfono:</strong>4741034817</p>"
+    var informacion = "<h1>Universidad DeLaSalle Bajío AC.</h1>"
+    informacion += "<p><strong>Dirección:</strong> Avenida Universidad 602, Lomas del Campestre, 37150 León, Gto, México.</p>"
+    informacion += "<p><strong>Teléfono:</strong>477 710 8500.</p>"
 
     function iniciaMapa() {
         var propiedades = {
@@ -84,8 +71,6 @@
             },
             zoom: 14
         };
-
-
         const mapa = document.getElementById("mapa")
         const map = new google.maps.Map(mapa, propiedades)
         if (navigator.geolocation) {
@@ -94,16 +79,13 @@
                     lat: position.coords.latitude,
                     lng: position.coords.longitude
                 }
-
                 let propiedadesMarcador = {
                     position: posicion,
                     map,
                     title: "Marcardor"
                 }
                 const marcador = new google.maps.Marker(propiedadesMarcador);
-
                 map.setCenter(posicion)
-
                 const infowindow = new google.maps.InfoWindow({
                     content: informacion
                 })
