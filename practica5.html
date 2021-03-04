@@ -67,16 +67,24 @@
         const mapa = document.getElementById("mapa");
         const map = new google.maps.Map(mapa, propiedades);
 
-        let posicion = {
-            lat: 21.277566, lng: -101.808784
+        if (navigator.geolocation) {
+
+            navigator.geolocation.getCurrentPosition(posicion => {
+                let posicion = {
+                    lat: position.coords.latitude,
+                    lon: position.coords.longitude,
+                }
+                const marker = new google.maps.Marker({
+                    position: posicion,
+                    map,
+                    title: "Mi marcador"
+                })
+            })
         }
 
 
-        const marker = new google.maps.Marker({
-            position: posicion,
-            map,
-            title: "Mi marcador"
-        })
+
+
     }
 
 </script>
