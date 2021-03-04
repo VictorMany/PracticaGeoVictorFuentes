@@ -15,7 +15,7 @@
 
     <div class="container-fluid">
         <div class="container bg-white">
-            <div class="row m-5">
+            <div class="row mt-5">
                 <div class="col-12 p-5">
                     <h1>Marcadores de Google</h1>
                     <div id="mapa"></div>
@@ -57,9 +57,9 @@
 
 
 <script>
-    var informacion = "<h1>Universidad DeLaSalle Bajío AC.</h1>"
-    informacion += "<p><strong>Dirección:</strong> Avenida Universidad 602, Lomas del Campestre, 37150 León, Gto, México.</p>"
-    informacion += "<p><strong>Teléfono:</strong>477 710 8500.</p>"
+    var informacion = "<h1>JARAMILLO DE ARRIBA (MI CASA,SU CASA).</h1>"
+    informacion += "<p><strong>Dirección:</strong> Jaramillo de Arriba, Carretera Lagos - León KM29, Lagos de Moreno Jalisco</p>"
+    informacion += "<p><strong>Teléfono:</strong>4741034817</p>"
 
     function iniciaMapa() {
         var propiedades = {
@@ -68,6 +68,8 @@
             },
             zoom: 14
         };
+
+
         const mapa = document.getElementById("mapa")
         const map = new google.maps.Map(mapa, propiedades)
         if (navigator.geolocation) {
@@ -76,13 +78,17 @@
                     lat: position.coords.latitude,
                     lng: position.coords.longitude
                 }
+                console.log(posicion);
                 let propiedadesMarcador = {
                     position: posicion,
                     map,
                     title: "Marcardor"
                 }
                 const marcador = new google.maps.Marker(propiedadesMarcador);
+                const marcador2 = new google.maps.Marker(propiedadesMarcador2);
+
                 map.setCenter(posicion)
+
                 const infowindow = new google.maps.InfoWindow({
                     content: informacion
                 })
