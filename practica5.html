@@ -58,6 +58,20 @@
     }
 </style>
 
+
+<style>
+    body {
+        background-color: #efefef;
+    }
+
+    #mapa {
+        width: 100%;
+        height: 600px;
+    }
+</style>
+
+
+
 <script>
     var informacion = "<h1>JARAMILLO DE ARRIBA (MI CASA,SU CASA).</h1>"
     informacion += "<p><strong>Dirección:</strong> Jaramillo de Arriba, Carretera Lagos - León KM29, Lagos de Moreno Jalisco</p>"
@@ -80,14 +94,13 @@
                     lat: position.coords.latitude,
                     lng: position.coords.longitude
                 }
-                console.log(posicion);
+
                 let propiedadesMarcador = {
                     position: posicion,
                     map,
                     title: "Marcardor"
                 }
                 const marcador = new google.maps.Marker(propiedadesMarcador);
-                const marcador2 = new google.maps.Marker(propiedadesMarcador2);
 
                 map.setCenter(posicion)
 
