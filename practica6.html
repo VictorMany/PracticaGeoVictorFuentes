@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Geolocation</title>
+    <meta name="viewport" content="initial-scale=1.0, user-scalable=no">
+    <meta charset="utf-8">
+</head>
+
+<body>
+    <div id="map"></div>
+
+    <script async defer
+        src="https://maps.googleapis.com/maps/api/js?key=AIzaSyADjOfdGIg-7JiqjoTstMN9el4g-nLhxxA&callback=iniciaMapa">
+        </script>
+</body>
+
+</html>
+
+
+
+
+<style>
+    #map {
+        height: 100%;
+    }
+
+    html,
+    body {
+        height: 100%;
+        margin: 0;
+        padding: 0;
+    }
+</style>
+
+
+<script>
+
+    var map;  // Es mi mapa
+
+    var coordenadas = {   //Son las coordenadas 
+        lat: 0,
+        lng: 0
+    }
+
+    //Propiedades de mi mapa 
+    var propiedades = {
+        center: coordenadas,
+        zoom: 20
+    }
+
+    function iniciaMapa() {
+        //Hacemos a donde va a apuntar mi mapa
+        map = new google.maps.Map(document.getElementById('map'), propiedades);
+        //Buscamos un icno DE GIPHY.COM
+        var icono = {
+            url: "https://i.pinimg.com/originals/aa/e5/c4/aae5c4f8ef71aa36a27947a7abb490cb.gif",
+            scaledSize: new google.maps.Size(50, 50),
+            origin: new google.maps.Point(0, 0),
+            anchor: new google.maps.Point(0, 0)
+        };
+        var marker = new google.maps.Marker({
+            position: { lat: 0, lng: 0 },
+            icon: icono,
+
+            map: map
+        });
+
+        if (navigator.geolocation) {
+
+            setInterval(function () {
+                moverPosicion(marker);
+            }, 5000);
+
+        }
+
+    }
+
+    function moverPosicion(marker) {
+        navigator.geolocation.getCurrentPosition(posicion => {
+            var pos = {
+                lat: posicion.coords.latitude,
+                lng: posicion.coords.longitude
+            };
+            marker.setPosition(new google.maps.LatLng(posicion.coords.latitude, posicion.coords.longitude));
+            map.panTo(new google.maps.LatLng(posicion.coords.latitude, posicion.coords.longitude));
+            map.setCenter(pos);
+
+        });
+
+    }
+</script>
