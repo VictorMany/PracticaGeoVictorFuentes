@@ -35,14 +35,11 @@
 
 
 <script>
-
     var map;  // Es mi mapa
-
     var coordenadas = {   //Son las coordenadas 
-        lat: 0,
-        lng: 0
+        lat: 0,  //Latitude 
+        lng: 0  //Longitud
     }
-
     //Propiedades de mi mapa 
     var propiedades = {
         center: coordenadas,
@@ -54,12 +51,12 @@
         map = new google.maps.Map(document.getElementById('map'), propiedades);
         //Buscamos un icno DE GIPHY.COM
         var icono = {
-            url: "http://1.bp.blogspot.com/-eD15B_sd_r8/UdURoczhcVI/AAAAAAAAqSY/B-fEIBs7f0k/s196/gifs-animados-infantiles-coches.gif",
+            url: "https://i.gifer.com/4jwo.gif",
             scaledSize: new google.maps.Size(55, 55),
-
             origin: new google.maps.Point(0, 0),
             anchor: new google.maps.Point(0, 0)
         };
+        //creamos nuestro maracdor de google
         var marker = new google.maps.Marker({
             position: { lat: 0, lng: 0 },
             icon: icono,
@@ -67,11 +64,9 @@
         });
 
         if (navigator.geolocation) {
-
             setInterval(function () {
                 moverPosicion(marker);
             }, 5000);
-
         }
 
     }
@@ -85,8 +80,6 @@
             marker.setPosition(new google.maps.LatLng(posicion.coords.latitude, posicion.coords.longitude));
             map.panTo(new google.maps.LatLng(posicion.coords.latitude, posicion.coords.longitude));
             map.setCenter(pos);
-
         });
-
     }
 </script>
