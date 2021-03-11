@@ -6,16 +6,13 @@
     <title>Fetch parte 1</title>
 </head>
 <body>
-
-    <div id="paises">
-
-    </div>
+    <select id="paises">
+    </select>
     <script>
         var paises = document.getElementById("paises");
-        fetch('datos.json')
+        fetch('https://github.com/VictorMany/PracticaGeoVictorFuentes/blob/master/fetch/datos.json')
         .then( function(response){
             response.json().then( function(datos){
-
                 datos.forEach( registro => {
                     console.log(registro.country);
                     let nombre = document.createElement("p");
