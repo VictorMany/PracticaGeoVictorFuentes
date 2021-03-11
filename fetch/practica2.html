@@ -10,11 +10,11 @@
 </head>
 
 <body>
-    <div class="container">
-        <h1
-            style="color: white; background-color: rgb(39, 39, 39); font-family: 'Times New Roman', Times, serif; margin: 0.5rem; border-radius: 0.5rem; padding: 0.5rem;">
-            Practica 1 con fetch</h1>
-    </div>
+
+    <h1
+        style="color: white; background-color: rgb(39, 39, 39); font-family: 'Times New Roman', Times, serif;  border-radius: 0.5rem; padding: 0.5rem;">
+        Fetch a Api</h1>
+
     <div class="container" id="paises">
         <div class="row">
             <div class="col">
@@ -34,7 +34,7 @@
 
                         console.log(registro.country);
                         let renglon = document.createElement("div");
-                        renglon.className = "row border bg-light";
+                        renglon.className = "row border fondo text-white";
                         paises.appendChild(renglon);
 
                         let columna = document.createElement("div");
@@ -67,3 +67,12 @@
 </body>
 
 </html>
+
+
+
+<style>
+
+    .fondo{
+        background-color: rgb(32, 7, 7);
+    }
+</style>
