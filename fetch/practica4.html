@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Práctica Fetch 4</title>
+</head>
+
+<body>
+    <div id="map"></div>
+</body>
+
+</html>
+
+<!--Api de Google maps-->
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyA3HTGbR2g2fA9AMdMoXbAIYMz2dIONoFs&callback=iniciaMapa"
+    async defer></script>
+<script>
+    var coordenadas = {
+        lat: 0,
+        lng: 0
+    }
+
+    var propiedades = {
+        center: coordenadas,
+        zoom: 2
+    }
+
+    function iniciaMapa() {
+        //Hacemos el fetch a la primera api 
+        fetch('paises.json')
+            .then(function (response) {
+                response.json().then(function (datos) {
+                    const map = new google.maps.Map(document.getElementById('map'), propiedades);
+                    datos.forEach(marcador => {
+                        //Fetch a la segunda api por cada uno de los maracdores
+                        fetch('https://corona.lmao.ninja/v3/covid-19/countries')
+                            .then(function (respuesta) {
+                                respuesta.json().then(function (datospaises) {
+                                    datospaises.forEach(registro => {
+                                        if (registro.country == marcador.CountryName) {
+                                            var informacion = "<strong>País:</strong> " +
+                                                registro.country + "<br><strong>Casos:</strong> " +
+                                                registro.cases + "<br><strong>Casos de Hoy:</strong> " +
+                                                registro.todayCases + "<br><strong>Activos:</strong> " +
+                                                registro.active + registro.cases + "<br><strong>Muertes:</strong> " +
+                                                registro.deaths + "<br><strong>Pruebas:</strong> " +
+                                                registro.tests;
+                                            var infowindow = new google.maps.InfoWindow({
+                                                content: informacion
+                                            });
+                                            let marker = new google.maps.Marker({
+                                                map: map,
+                                                position: new google.maps.LatLng(marcador.CapitalLatitude, marcador.CapitalLongitude),
+                                                title: marcador.CountryName + '  ' + registro.cases
+                                            });
+
+                                            marker.addListener('click', function () {
+                                                infowindow.open(map, marker);
+                                            });
+                                        }
+                                    });
+                                });
+                            });
+                    });
+                });
+            })
+
+            .catch(function (error) {
+                console.log('Hubo un problema con la petición Fetch:' + error.message);
+            });
+    }
+
+</script>
+
+<!--ESTILOS DE CSS-->
+<style>
+    #map {
+        width: 100%;
+        height: 100%;
+    }
+
+    html,
+    body {
+        width: 100%;
+        height: 100%;
+        margin: 0;
+        padding: 0;
+        ;
+    }
+</style>
