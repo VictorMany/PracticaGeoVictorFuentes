@@ -42,12 +42,10 @@
                                         if (registro.country == marcador.CountryName) {
                                             var informacion =
                                                 "<strong>País:</strong> " + registro.country +
-                                                "<img src='" + countryInfo.flag + '/>"' +
-                                                "<br><strong>Casos:</strong> " + registro.cases +
-                                                "<br><strong>Casos de Hoy:</strong> " + registro.todayCases +
-                                                "<br><strong>Activos:</strong> " + registro.active + registro.cases +
-                                                "<br><strong>Muertes:</strong> " + registro.deaths +
-                                                "<br><strong>Pruebas:</strong> " + registro.tests;
+                                                "<br><strong>Casos totales: </strong> " + registro.cases +
+                                                "<br><strong>Casos de Hoy: </strong> " + registro.todayCases +
+                                                "<br><strong>Activos: </strong> " + registro.active + registro.cases +
+                                                "<br><strong>Muertes: </strong> " + registro.deaths
 
                                             var infowindow = new google.maps.InfoWindow({
                                                 content: informacion
