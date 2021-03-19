@@ -69,16 +69,16 @@
             { lat: -43.999792, lng: 170.463352 }
         ];
 
-
+        var map = new google.maps.Map(
+            document.getElementById('map'),
+            {
+                center: coordenadas,
+                zoom: 3
+            }
+        );
 
         function iniciaMapa() {
-            var map = new google.maps.Map(
-                document.getElementById('map'),
-                {
-                    center: coordenadas,
-                    zoom: 3
-                }
-            );
+
 
             var labels = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
 
