@@ -13,9 +13,9 @@
     <div class="container-fluid">
         <div class="container">
             <div class="row">
-                <div class="col-12 text-center">
+                <div class="col-12 text-center pt-2">
                     <h1
-                        style="padding: 0.5rem; background-color: rgb(0, 92, 167); font-weight: bold; border-radius: 0.5rem;">
+                        style="background-color: rgb(0, 92, 167); font-weight: bold; border-radius: 0.5rem; padding: 0.2rem; color: white;">
                         GOOGLE Maps
                         Clustering</h1>
                     <div id="map"></div>
@@ -76,7 +76,7 @@
 
         function iniciaMapa() {
 
-            var map = new google.maps.Map(
+            map = new google.maps.Map(
                 document.getElementById('map'),
                 {
                     center: coordenadas,
@@ -115,7 +115,7 @@
 
         }
 
-        var tipoMapa = (tipo) => {
+        function tipoMapa(tipo) {
             map.setMapTypeId(tipo);
         }
 
