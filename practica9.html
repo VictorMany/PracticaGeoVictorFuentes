@@ -555,7 +555,9 @@
 
         var map = new google.maps.Map(mapa, propiedades);
 
-        map.mapTypes.set('style_map2', styledMapType2);
+        map.mapTypes.set('style_map', styledMapType);
+        map.setMapTypeId('style_map');
+        map.mapTypes.set('style_map2', styledMapTypeOcuro);
         map.setMapTypeId('style_map2');
     }
 
