@@ -1,0 +1,163 @@
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mapas con opciones</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+</head>
+
+<body>
+    <div class="container-fluid m-2 text-center">
+        <div style="width: 100%; padding: 1rem">
+            <h1
+                style="background-color: rgb(4, 135, 228); width: 100%; font-weight: bold; border-radius: 0.5rem; padding: 0.5rem; color: white;">
+                Controles en los mapas</h1>
+        </div>
+        <div class="row">
+            <div class="col-12 col-md-4">
+                <div id="map1"></div>
+                <p>Mapa con controles estándar</p>
+            </div>
+            <div class="col-12 col-md-4">
+                <div id="map2"></div>
+                <p>Mapa sin controles</p>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-12 col-md-6">
+                <div id="map3"></div>
+                <p>Mapa con zoom desactivado</p>
+            </div>
+            <div class="col-12 col-md-6">
+                <div id="map4"></div>
+                <p>Mapa con ControlOptions</p>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-12 col-md-6">
+                <div id="map5"></div>
+                <p>Mapa con ControlPosition</p>
+            </div>
+            <div class="col-12 col-md-6">
+                <div id="mapa6"></div>
+                <p>Mapa con Restricting MapBounds</p>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>
+
+<!--Scrips de la imagen-->
+<script>
+    function iniciaMapa() {
+        var coordenadas = { lat: 21.1526, lng: -101.7115 };
+        //Mapa con lo que siempre hemos visto
+        var props1 = {
+            center: coordenadas,
+            zoom: 12
+        };
+        var map1 = new google.maps.Map(document.getElementById('map1'), props1);
+        //Propiedad que deshabilita el user interface(No tiene opciones, es un mapa limpio)
+        var props2 = {
+            center: coordenadas,
+            zoom: 12,
+            disableDefaultUI: true
+        };
+        var map2 = new google.maps.Map(document.getElementById('map2'), props2);
+        //MAPA que deshabilita el zoom
+        var props3 = {
+            center: coordenadas,
+            zoom: 12,
+            zoomControl: false,
+            scaleControl: false
+        };
+        var map3 = new google.maps.Map(document.getElementById('map3'), props3);
+        //MAPA que tiene control options en dropdown
+        var props4 = {
+            center: coordenadas,
+            zoom: 12,
+            mapTypeControl: true,
+            mapTypeControlOptions: {
+                style: google.maps.MapTypeControlStyle.DROPDOWN_MENU,
+                mapTypeIds: ['roadmap', 'satellite', 'terrain']
+            }
+
+        };
+        var map4 = new google.maps.Map(document.getElementById('map4'), props4);
+        // Posiciones de los controles
+        var props5 = {
+            center: coordenadas,
+            zoom: 12,
+            mapTypeControl: true,
+            mapTypeControlOptions: {
+                style: google.maps.MapTypeControlStyle.HORIZONTAL_BAR,
+                position: google.maps.ControlPosition.BOTTOM_CENTER
+            },
+            zoomControl: true,
+            zoomControlOptions: {
+                position: google.maps.ControlPosition.RIGHT_CENTER
+            },
+            scaleControl: true,
+            streetViewControl: true,
+            streetViewControlOptions: {
+                position: google.maps.ControlPosition.RIGHT_TOP
+            },
+            fullscreenControl: true
+
+        };
+        var map5 = new google.maps.Map(document.getElementById('map5'), props5);
+        var limites = {
+            north: 21.390039,
+            south: 20.858414,
+            west: -102.149631,
+            east: -101.092990
+        }
+        //lIMITES DE ARea para nuestro mapa 
+        var props6 = {
+            center: coordenadas,
+            zoom: 12,
+            restriction: {
+                latLngBounds: limites,
+                strictBounds: false
+            }
+        };
+        var mapa6 = new google.maps.Map(document.getElementById('mapa6'), propiedades6);
+    }
+
+</script>
+<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+    integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+    crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+    integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+    crossorigin="anonymous"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+    integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+    crossorigin="anonymous"></script>
+<!--Api de Google maps-->
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyA3HTGbR2g2fA9AMdMoXbAIYMz2dIONoFs&callback=iniciaMapa"
+    async defer></script>
+
+<!--Estilos de la pagina-->
+<style>
+    #map1,
+    #map2,
+    #map3,
+    #map4,
+    #map5,
+    #map6 {
+        width: 100%;
+        height: 340px;
+    }
+
+    p {
+        background-color: rgb(16, 79, 150);
+        color: white;
+        border-radius: 0.5rem;
+        padding: 1rem;
+        text-align: center;
+    }
+</style>
