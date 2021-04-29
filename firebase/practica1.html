@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Firebase</title>
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+        integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+</head>
+
+<body>
+    <div>
+        <div class="container-fluid pt-5" style="background-color: #5F8ADA96;">
+            <div class="container" style="background-color: #192e54; border-radius: 0.5rem; padding-bottom: 1rem;">
+                <div class="row">
+                    <div class="col-12">
+                        <h3 style="color: white; margin: 1rem">Mensajes grupales</h3>
+                    </div>
+                </div>
+                <form id="form" style="background-color: #273c62; border-radius: 0.5rem; padding: 1rem;">
+                    <div class="row">
+                        <div class="col-12 col-md-4 py-2">
+                            <input type="text" name="nombre" required class="form-control" placeholder="Nombre">
+                        </div>
+                        <div class="col-12 col-md-6 py-2">
+                            <textarea type="text" name="mensaje" required class="form-control"
+                                placeholder="Mensaje"></textarea>
+                        </div>
+                        <div class="col-12 col-md-2 py-2">
+                            <button type="submit" class="btn btn-primary">Agregar<i class="fas fa-plus"></i></button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+        <div style="padding: 2rem">
+            <div class="container-fluid"
+                style="border-radius: 1rem; background-color: #77A0EC93; padding: 1rem 0 1rem 0; background-image: url('../Images/fondo.jpg');">
+                <div class="container">
+                    <div class="row">
+                        <div>
+                            <ul id="lista" class="list-group"></ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>
+
+
+<!--!--Librerias de firebase---->
+<script src="https://www.gstatic.com/firebasejs/7.9.3/firebase-app.js"></script>
+<script src="https://www.gstatic.com/firebasejs/7.9.3/firebase-firestore.js"></script>
+<script>
+    var firebaseConfig = {
+        apiKey: "AIzaSyDBIymZ-bc2rG3LEHTfBEhXElQPIZDIHXQ",
+        authDomain: "fir-geo1.firebaseapp.com",
+        projectId: "fir-geo1",
+        storageBucket: "fir-geo1.appspot.com",
+        messagingSenderId: "498512047563",
+        appId: "1:498512047563:web:4104a7556d5ff37d119a4e",
+        measurementId: "G-2R5JSHPTTL"
+    };
+
+    // Initialize Firebase
+
+    //LOS ESTILOS SE LOS PUSE INDIVUALES PORQUE QUIERO APRENDER A COMO PONERLOS INDIVUDUALMENTE y también se que se pueden poner en una clase y poner la clase dinámicamente con lenguaje de javascript y se podría ver más organizado, pero ese no era mi objetivo esta vez profe
+    firebase.initializeApp(firebaseConfig);
+    const db = firebase.firestore();
+    const mensajeslista = document.querySelector("#lista");
+    const formulario = document.querySelector("#form");
+    function rendermensajes(doc) {
+        let li = document.createElement("li");
+        li.style.width = '100%'
+        let nombre = document.createElement("span");
+        let mensaje = document.createElement("span");
+        let borrar = document.createElement("button");
+        borrar.className = "btn m-3";
+        borrar.style.backgroundColor = "#09A09B"
+        borrar.style.color = "white"
+        borrar.style.fontSize = '10px';
+        nombre.textContent = "@" + doc.data().nombre + " ";
+        nombre.style.color = '#8FAADD'
+        mensaje.textContent = doc.data().mensaje + " ";
+        borrar.textContent = "Eliminar mensaje  ";
+        li.setAttribute("id", doc.id);
+        li.style.borderRadius = '0.5rem';
+        li.style.backgroundColor = '#273C62A8';
+        li.style.color = 'white'
+        li.style.margin = '0.5rem';
+        li.style.padding = '0.2rem'
+        li.appendChild(borrar);
+        li.appendChild(nombre);
+        li.appendChild(mensaje);
+        mensajeslista.appendChild(li);
+        borrar.addEventListener("click", (e) => {
+            let id = e.target.parentElement.getAttribute("id");
+            db.collection("mensajes").doc(id).delete();
+        });
+    }
+    //Guarda datos
+    formulario.addEventListener('submit', (e) => {
+        e.preventDefault();
+        db.collection('mensajes').add({
+            nombre: formulario.nombre.value,
+            mensaje: formulario.mensaje.value
+        });
+        formulario.nombre.value = '';
+        formulario.mensaje.value = '';
+    });
+    db.collection('mensajes').onSnapshot(snapshot => {
+        let changes = snapshot.docChanges();
+        changes.forEach(change => {
+            if (change.type == 'added') {
+                rendermensajes(change.doc);
+            } else if (change.type == 'removed') {
+                console.log(change.doc.id);
+                let valorid = document.getElementById(change.doc.id);
+                lista.removeChild(valorid);
+            }
+        });
+    });
+
+</script>
+<!--Demás librerias---->
+<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+    integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+    crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+    integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+    crossorigin="anonymous"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+    integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+    crossorigin="anonymous"></script>
+
+<style>
+    body {
+        background-color: #5F8ADA;
+        padding-left: 2rem;
+        padding-right: 2rem;
+
+    }
+</style>
