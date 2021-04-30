@@ -11,9 +11,8 @@
 </head>
 
 <body>
-    <div>
-        <div class="container-fluid pt-5" style="background-color: #5F8ADA96;">
-            <div class="container" style="background-color: #192e54; border-radius: 0.5rem; padding-bottom: 1rem;">
+        <div class="pt-3" style="background-color: #5F8ADA96;">
+            <div class="mx-1 px-3" style="background-color: #192e54; border-radius: 0.5rem; padding-bottom: 1rem;">
                 <div class="row">
                     <div class="col-12">
                         <h3 style="color: white; margin: 1rem">Mensajes grupales</h3>
@@ -29,12 +28,13 @@
                                 placeholder="Mensaje"></textarea>
                         </div>
                         <div class="col-12 col-md-2 py-2">
-                            <button type="submit" class="btn btn-primary">Agregar<i class="fas fa-plus"></i></button>
+                            <button type="submit" class="btn btn-primary">Enviar mensaje<i class="fas fa-plus"></i></button>
                         </div>
                     </div>
                 </form>
             </div>
         </div>
+
         <div style="padding: 2rem">
             <div class="container-fluid"
                 style="border-radius: 1rem; background-color: #77A0EC93; padding: 1rem 0 1rem 0; background-image: url('../Images/fondo.jpg');">
@@ -47,7 +47,7 @@
                 </div>
             </div>
         </div>
-    </div>
+  
 </body>
 
 </html>
@@ -76,27 +76,34 @@
     const formulario = document.querySelector("#form");
     function rendermensajes(doc) {
         let li = document.createElement("li");
-        li.style.width = '100%'
+
         let nombre = document.createElement("span");
         let mensaje = document.createElement("span");
+        let br = document.createElement("br");
         let borrar = document.createElement("button");
         borrar.className = "btn m-3";
-        borrar.style.backgroundColor = "#09A09B"
-        borrar.style.color = "white"
-        borrar.style.fontSize = '10px';
         nombre.textContent = "@" + doc.data().nombre + " ";
-        nombre.style.color = '#8FAADD'
         mensaje.textContent = doc.data().mensaje + " ";
         borrar.textContent = "Eliminar mensaje  ";
         li.setAttribute("id", doc.id);
+        borrar.style.backgroundColor = "#09A09B"
+        borrar.style.color = "white"
+        borrar.style.fontSize = '10px';
+        nombre.style.color = '#8FAADD'
         li.style.borderRadius = '0.5rem';
         li.style.backgroundColor = '#273C62A8';
         li.style.color = 'white'
         li.style.margin = '0.5rem';
-        li.style.padding = '0.2rem'
+        li.style.padding = '0 1rem 1rem 1rem';
+        li.style.width = '97%'
         li.appendChild(borrar);
         li.appendChild(nombre);
+        li.appendChild(br);
         li.appendChild(mensaje);
+        mensaje.style.fontSize = '12px';
+
+
+
         mensajeslista.appendChild(li);
         borrar.addEventListener("click", (e) => {
             let id = e.target.parentElement.getAttribute("id");
@@ -141,8 +148,5 @@
 <style>
     body {
         background-color: #5F8ADA;
-        padding-left: 2rem;
-        padding-right: 2rem;
-
     }
 </style>
