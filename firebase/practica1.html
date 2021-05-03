@@ -95,15 +95,12 @@
         li.style.color = 'white'
         li.style.margin = '0.5rem';
         li.style.padding = '0 1rem 1rem 1rem';
-        li.style.width = '97%'
+        li.style.width = '97%';
         li.appendChild(borrar);
         li.appendChild(nombre);
         li.appendChild(br);
         li.appendChild(mensaje);
         mensaje.style.fontSize = '12px';
-
-
-
         mensajeslista.appendChild(li);
         borrar.addEventListener("click", (e) => {
             let id = e.target.parentElement.getAttribute("id");
