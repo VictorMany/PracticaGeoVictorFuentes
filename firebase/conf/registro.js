@@ -24,7 +24,6 @@ class Registro {
     };
 
     actualizar() {
-
         db.collection('mensajes').doc(this.id).update({
             nombre: this.nombre,
             mensaje: this.mensaje

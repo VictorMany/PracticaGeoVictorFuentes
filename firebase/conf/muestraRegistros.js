@@ -15,7 +15,7 @@ function muestraRegistros(doc) {
 
     let mensaje = document.createElement("textarea");
     mensaje.value = registro.mensaje;
-    mensaje.className = "form-control";
+    mensaje.className = "mensaje form-control";
     mensaje.style.backgroundColor = '#071633A6';
     mensaje.style.color = 'white';
 
@@ -34,9 +34,6 @@ function muestraRegistros(doc) {
     editar.setAttribute("data-target", "#ventanaeditar");
     editar.style.backgroundColor = '#1B2581';
     editar.style.color = 'white';
-
-
-
 
     li.appendChild(borrar);
     li.appendChild(editar);
