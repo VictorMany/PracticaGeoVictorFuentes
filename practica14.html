@@ -9,10 +9,7 @@
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
     integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 </head>
-
 <body>
-
-
   <div class="container-fluid">
     <div class="row" style="padding-top: 0.5rem;">
       <div class="col-12 col-md-6">
@@ -34,7 +31,6 @@
       margin: 0px;
       padding: 0px;
     }
-
     #map {
       width: 100%;
       height: 500px;
@@ -69,6 +65,7 @@
             `;
             var coordenadasVuelos = [];
 
+            console.log(municipios);
             municipios.forEach(municipio => {
               coordenadasVuelos.push(municipio.coordenadas);
               var municipioCirculo = new google.maps.Circle({
@@ -128,5 +125,4 @@
   <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyA3HTGbR2g2fA9AMdMoXbAIYMz2dIONoFs&callback=iniciaMapa"
     async defer></script>
 </body>
-
 </html>
