@@ -46,7 +46,7 @@
       var coordenadas = { lat: 21.3634964, lng: -101.9291015 };
       var props = {
         center: coordenadas,
-        zoom: 10,
+        zoom: 2,
         mapTypeId: 'terrain'
       };
       map = new google.maps.Map(document.getElementById('map'), props);
@@ -92,8 +92,7 @@
               path: coordsVuelos,
               geodesic: true,
               strokeColor: '#009E1A',
-              strokeOpacity: 0.5,
-              strokeColor: 1.5
+              strokeOpacity: 1,
             });
             trazos.setMap(map);
             tabla += `  
