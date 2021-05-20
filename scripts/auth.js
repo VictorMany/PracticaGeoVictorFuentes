@@ -105,7 +105,7 @@ logInGoogle = () => {
         let html = `
         <p>Nombre: ${user.displayName}</p>
         <p>Correo: ${user.email}</p>
-        <div style="padding: 3rem;" class="d-flex justify-center content-center items-center">
+        <div class="d-flex justify-content-center">
             <img style="width: 200px; height: 200px; border-radius: 50%;" src="${user.photoURL}"/>
         </div>
         `;
@@ -120,3 +120,83 @@ logInGoogle = () => {
         console.log(err)
     })
 }
+
+
+logInGithub = () => {
+    var provider = new firebase.auth.GithubAuthProvider();
+    firebase.auth().signInWithPopup(provider).then((result) => {
+        var token = result.credential.accessToken;
+        console.log(token);
+        var user = result.user;
+
+        let html = `
+        <p>Nombre: ${user.displayName}</p>
+        <p>Correo: ${user.email}</p>
+        <div class="d-flex justify-content-center">
+            <img style="width: 200px; height: 200px; border-radius: 50%;" src="${user.photoURL}"/>
+        </div>
+        `;
+
+
+        misDatos.innerHTML = html;
+        let cerrar = document.getElementById('cerrar1');
+        cerrar.click();
+        formaingresar.reset();
+        formaingresar.querySelector('.error').innerHTML = '';
+    }).catch((err) => {
+        console.log(err)
+    })
+}
+
+
+logInApple = () => {
+    var provider = new firebase.auth.OAuthProvider('apple.com');
+    firebase.auth().signInWithPopup(provider).then((result) => {
+        var token = result.credential.accessToken;
+        console.log(token);
+        var user = result.user;
+
+        let html = `
+        <p>Nombre: ${user.displayName}</p>
+        <p>Correo: ${user.email}</p>
+        <div class="d-flex justify-content-center">
+            <img style="width: 200px; height: 200px; border-radius: 50%;" src="${user.photoURL}"/>
+        </div>
+        `;
+
+
+        misDatos.innerHTML = html;
+        let cerrar = document.getElementById('cerrar1');
+        cerrar.click();
+        formaingresar.reset();
+        formaingresar.querySelector('.error').innerHTML = '';
+    }).catch((err) => {
+        console.log(err)
+    })
+}
+
+logInFacebook = () => {
+    var provider = new firebase.auth.FacebookAuthProvider();
+    firebase.auth().signInWithPopup(provider).then((result) => {
+        var token = result.credential.accessToken;
+        console.log(token);
+        var user = result.user;
+
+        let html = `
+        <p>Nombre: ${user.displayName}</p>
+        <p>Correo: ${user.email}</p>
+        <div class="d-flex justify-content-center">
+            <img style="width: 200px; height: 200px; border-radius: 50%;" src="${user.photoURL}"/>
+        </div>
+        `;
+        misDatos.innerHTML = html;
+        let cerrar = document.getElementById('cerrar1');
+        cerrar.click();
+        formaingresar.reset();
+        formaingresar.querySelector('.error').innerHTML = '';
+    }).catch((err) => {
+        console.log(err)
+    })
+}
+
+
