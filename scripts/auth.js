@@ -105,7 +105,9 @@ logInGoogle = () => {
         let html = `
         <p>Nombre: ${user.displayName}</p>
         <p>Correo: ${user.email}</p>
-        <img style="width: 200px; height: 200px; border-radius: 50%;" src="${user.photoURL}"/>
+        <div style="padding: 3rem;">
+            <img style="width: 100% height: 100%; border-radius: 50%;" src="${user.photoURL}"/>
+        </div>
         `;
 
 
