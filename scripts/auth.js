@@ -13,9 +13,6 @@ auth.onAuthStateChanged(user => {
     }
 });
 
-
-
-
 const salir = document.getElementById('salir');
 salir.addEventListener('click', (e) => {
     e.preventDefault();
@@ -45,9 +42,6 @@ function mensajeError(codigo) {
     return mensaje;
 }
 
-
-
-
 var welcome = ''
 const formaingresar = document.getElementById('formLogIn');
 formaingresar.addEventListener('submit', (e) => {
@@ -66,8 +60,6 @@ formaingresar.addEventListener('submit', (e) => {
     });
 
 });
-
-
 
 const formaRegistrarse = document.getElementById('formSignIn');
 formaRegistrarse.addEventListener('submit', (e) => {
@@ -92,7 +84,6 @@ formaRegistrarse.addEventListener('submit', (e) => {
         formaRegistrarse.querySelector('.error').innerHTML = mensajeError(err.code);
     })
 })
-
 
 logInGoogle = () => {
     var provider = new firebase.auth.GoogleAuthProvider();
@@ -121,7 +112,6 @@ logInGoogle = () => {
     })
 }
 
-
 logInGithub = () => {
     var provider = new firebase.auth.GithubAuthProvider();
     firebase.auth().signInWithPopup(provider).then((result) => {
@@ -147,7 +137,6 @@ logInGithub = () => {
         console.log(err)
     })
 }
-
 
 logInApple = () => {
     var provider = new firebase.auth.OAuthProvider('apple.com');
@@ -181,7 +170,6 @@ logInFacebook = () => {
         var token = result.credential.accessToken;
         console.log(token);
         var user = result.user;
-
         let html = `
         <p>Nombre: ${user.displayName}</p>
         <p>Correo: ${user.email}</p>
@@ -198,5 +186,4 @@ logInFacebook = () => {
         console.log(err)
     })
 }
-
 
