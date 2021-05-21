@@ -37,7 +37,7 @@ function mensajeError(codigo) {
             mensaje = 'Contraseña débil debe tener al menos 6 caracteres';
             break;
         default:
-            mensaje = 'Ocurrió un error al ingresar con este usuario';
+            mensaje = 'Ocurrió un error al ingresar con este usuario ' + codigo;
     }
     return mensaje;
 }
@@ -70,11 +70,14 @@ formaRegistrarse.addEventListener('submit', (e) => {
     auth.createUserWithEmailAndPassword(correo, contraseña).then(cred => {
         //Hasta aqui estaría el usuario creado
         console.log("Se creo el usuario");
+        console.log(formaRegistrarse['rnombre'].value);
+        console.log(formaRegistrarse['rtelefono'].value);
+        console.log(formaRegistrarse['rdireccion'].value);
         return db.collection('usuarios').doc(cred.user.uid).set({
             nombre: formaRegistrarse['rnombre'].value,
             telefono: formaRegistrarse['rtelefono'].value,
             direccion: formaRegistrarse['rdireccion'].value
-        })
+        });
     }).then(() => {
         let cerrar2 = document.getElementById('cerrar2');
         cerrar2.click();
@@ -126,8 +129,6 @@ logInGithub = () => {
             <img style="width: 200px; height: 200px; border-radius: 50%;" src="${user.photoURL}"/>
         </div>
         `;
-
-
         misDatos.innerHTML = html;
         let cerrar = document.getElementById('cerrar1');
         cerrar.click();
