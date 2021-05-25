@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shapes</title>
+    <!-- Bootstrap -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+</head>
+
+<body>
+    <div class="container-fluid">
+        <div class="row" style="padding-top: 0.5rem;">
+            <div class="col-12 col-md-6" style="margin-bottom: 1rem;">
+                <!--Div del mapa-->
+                <div id="map" style="border-radius: 0.4rem"></div>
+            </div>
+            <div class="col-12 col-md-6">
+                <h2
+                    style="padding: 0.5rem; border-radius: 0.3rem; background-color: rgb(0, 140, 255); color: rgb(255, 255, 255); text-align: center;">
+                    Las ciudades más pobladas de México</h2>
+                <div id="datos"></div>
+            </div>
+        </div>
+    </div>
+
+    <!--Mis estilos globales-->
+    <style>
+        html,
+        body {
+            margin: 0px;
+            padding: 0px;
+        }
+
+        #map {
+            width: 100%;
+            height: 500px;
+        }
+    </style>
+
+    <!--Mis funcionalidad-->
+    <script>
+        function iniciaMapa() {
+            var coordenadas = {
+                lat: 21.3634964,
+                lng: -101.9291015
+            };
+            var props = {
+                center: coordenadas,
+                zoom: 6,
+                mapTypeId: 'terrain'
+            };
+            map = new google.maps.Map(document.getElementById('map'), props);
+
+            fetch("https://community-open-weather-map.p.rapidapi.com/find?q=london", {
+                    "method": "GET",
+                    "headers": {
+                        "x-rapidapi-key": "f73457ab3dmshc43aab8c02f5d11p1e00e2jsna440f3db72f8",
+                        "x-rapidapi-host": "community-open-weather-map.p.rapidapi.com"
+                    }
+                })
+                .then(response => {
+                    console.log(response);
+                })
+                .catch(err => {
+                    console.error(err);
+                });
+        }
+    </script>
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+        integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous">
+    </script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+        integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous">
+    </script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+        integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous">
+    </script>
+    <!--Api de Google maps-->
+    <script
+        src="https://maps.googleapis.com/maps/api/js?key=AIzaSyA3HTGbR2g2fA9AMdMoXbAIYMz2dIONoFs&callback=iniciaMapa"
+        async defer></script>
+</body>
+
+</html>
