@@ -32,15 +32,12 @@ const confMenu = (user) => {
 
 
 const dishesList = document.getElementById('dishesList');
-
 const getDishes = (data) => {
     if (data.length) {
         let html = '';
 
         data.forEach(doc => {
             const platillo = doc.data();
-
-
             const column = `
             <div class="col-12 col-md-4">
                 <img src="${platillo.image}"

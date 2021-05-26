@@ -1,25 +1,38 @@
 auth.onAuthStateChanged(user => {
     console.log(user);
     if (user) {
-       
-        db.collection('dishes').onSnapshot(snapshot => {
-            getDishes(snapshot.docs);
+        iniciaMapa();
+        db.collection('ciudades/' + user.uid + '/ciudades').onSnapshot(snapshot => {
+            console.log(snapshot.docs);
+            let ciudad
+            snapshot.docs.forEach(doc => {
+                ciudad = doc.data();
+                console.log(ciudad)
+            });
+            getCities(snapshot.docs);
+            document.getElementById("weatherBody").style.display = "block"
+            document.getElementById("welcome").style.display = "none"
         });
         confMenu(user);
     }
     else {
         confMenu();
-        getDishes([]);
+        getCities([]);
+        document.getElementById("weatherBody").style.display = "none"
+        document.getElementById("welcome").style.display = "block"
     }
 });
 
-
 const salir = document.getElementById('salir');
-  salir.addEventListener('click', (e) => {
+
+salir.addEventListener('click', (e) => {
     e.preventDefault();
     auth.signOut().then(() => {
         alert("El usuario ha salido del sistema");
         console.log("El usuario salió");
+
+        const misDatos = document.querySelector('.datosdelacuenta');
+        misDatos.innerHTML = "";
     }).catch(err => {
         console.log(err);
     });
@@ -43,7 +56,6 @@ function mensajeError(codigo) {
     return mensaje;
 }
 
-var welcome = ''
 const formaingresar = document.getElementById('formLogIn');
 formaingresar.addEventListener('submit', (e) => {
     e.preventDefault();
@@ -91,7 +103,6 @@ formaRegistrarse.addEventListener('submit', (e) => {
 
 logInGoogle = () => {
     var provider = new firebase.auth.GoogleAuthProvider();
-
     firebase.auth().signInWithPopup(provider).then((result) => {
         var token = result.credential.accessToken;
         console.log(token);
@@ -105,7 +116,6 @@ logInGoogle = () => {
         </div>
         `;
 
-
         misDatos.innerHTML = html;
         let cerrar = document.getElementById('cerrar1');
         cerrar.click();
@@ -115,77 +125,3 @@ logInGoogle = () => {
         console.log(err)
     })
 }
-
-logInGithub = () => {
-    var provider = new firebase.auth.GithubAuthProvider();
-    firebase.auth().signInWithPopup(provider).then((result) => {
-        var token = result.credential.accessToken;
-        console.log(token);
-        var user = result.user;
-
-        let html = `
-        <p>Nombre: ${user.displayName}</p>
-        <p>Correo: ${user.email}</p>
-        <div class="d-flex justify-content-center">
-            <img style="width: 200px; height: 200px; border-radius: 50%;" src="${user.photoURL}"/>
-        </div>
-        `;
-        misDatos.innerHTML = html;
-        let cerrar = document.getElementById('cerrar1');
-        cerrar.click();
-        formaingresar.reset();
-        formaingresar.querySelector('.error').innerHTML = '';
-    }).catch((err) => {
-        console.log(err)
-    })
-}
-
-logInApple = () => {
-    var provider = new firebase.auth.OAuthProvider('apple.com');
-    firebase.auth().signInWithPopup(provider).then((result) => {
-        var token = result.credential.accessToken;
-        console.log(token);
-        var user = result.user;
-
-        let html = `
-        <p>Nombre: ${user.displayName}</p>
-        <p>Correo: ${user.email}</p>
-        <div class="d-flex justify-content-center">
-            <img style="width: 200px; height: 200px; border-radius: 50%;" src="${user.photoURL}"/>
-        </div>
-        `;
-
-
-        misDatos.innerHTML = html;
-        let cerrar = document.getElementById('cerrar1');
-        cerrar.click();
-        formaingresar.reset();
-        formaingresar.querySelector('.error').innerHTML = '';
-    }).catch((err) => {
-        console.log(err)
-    })
-}
-
-logInFacebook = () => {
-    var provider = new firebase.auth.FacebookAuthProvider();
-    firebase.auth().signInWithPopup(provider).then((result) => {
-        var token = result.credential.accessToken;
-        console.log(token);
-        var user = result.user;
-        let html = `
-        <p>Nombre: ${user.displayName}</p>
-        <p>Correo: ${user.email}</p>
-        <div class="d-flex justify-content-center">
-            <img style="width: 200px; height: 200px; border-radius: 50%;" src="${user.photoURL}"/>
-        </div>
-        `;
-        misDatos.innerHTML = html;
-        let cerrar = document.getElementById('cerrar1');
-        cerrar.click();
-        formaingresar.reset();
-        formaingresar.querySelector('.error').innerHTML = '';
-    }).catch((err) => {
-        console.log(err)
-    })
-}
-
