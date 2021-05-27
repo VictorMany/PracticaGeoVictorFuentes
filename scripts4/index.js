@@ -12,6 +12,8 @@ const confMenu = (user) => {
             <p>Correo: ${user.email}</p>
             <p>Teleono>: ${doc.data().telefono}</p>
             <p>Direccion: ${doc.data().direccion}</p>
+            <p>Coordenadas: ${doc.data().coordenadas.latitude}, ${doc.data().coordenadas.longitude} </p>
+           
             `;
             misDatos.innerHTML = html;
         });

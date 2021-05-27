@@ -1,9 +1,23 @@
 auth.onAuthStateChanged(user => {
     console.log(user);
     if (user) {
-        db.collection('friends').onSnapshot(snapshot => {
-            getFriends(snapshot.docs);
-        });
+        if (navigator.geolocation.getCurrentPosition(position => {
+            var pos = {
+                lat: position.coords.latitude,
+                lng: position.coords.longitude
+            };
+
+            db.collection('usuarios').doc(user.uid).update({
+                coordenadas: pos
+            });
+
+            //Actualizar con cada uno de los usuarios
+        }))
+
+
+            db.collection('friends').onSnapshot(snapshot => {
+                getFriends(snapshot.docs);
+            });
         confMenu(user);
     }
     else {
