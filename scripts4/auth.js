@@ -7,7 +7,7 @@ auth.onAuthStateChanged(user => {
                 lng: position.coords.longitude
             };
 
-            db.collection('usuarios').doc(user.uid).update({
+            db.collection('friends').doc(user.uid).update({
                 coordenadas: pos
             });
 
