@@ -12,7 +12,7 @@ const confMenu = (user) => {
             <p>Correo: ${user.email}</p>
             <p>Teleono>: ${doc.data().telefono}</p>
             <p>Direccion: ${doc.data().direccion}</p>
-            <p>Coordenadas: ${doc.data().coordenadas.latitude}, ${doc.data().coordenadas.longitude} </p>
+            <p>Coordenadas: ${doc.data().coordenadas.lat}, ${doc.data().coordenadas.lng} </p>
            
             `;
             misDatos.innerHTML = html;
