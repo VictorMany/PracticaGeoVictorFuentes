@@ -255,7 +255,7 @@
                 },
                 zoom: 14
             };
-            const mapa = document.getElementById("mapa")
+            const mapa = document.getElementById("map")
             const map = new google.maps.Map(mapa, propiedades)
             if (navigator.geolocation) {
                 navigator.geolocation.getCurrentPosition(position => {
