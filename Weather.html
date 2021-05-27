@@ -266,8 +266,8 @@
 
         </div>
     </div>
-    
-    
+
+
     <div style="color: white; text-align: center" id="welcome">Bienvenido a tu página del clima</div>
 
     <footer class="text-muted py-5 bg-light">
@@ -284,7 +284,7 @@
         </div>
     </footer>
 
-    
+
     <!--Mis estilos globales-->
     <style>
         html,
@@ -309,13 +309,13 @@
         var informacion = ""
 
         function iniciaMapa(ciudad) {
-         
+
             if (ciudad == undefined) ciudad = "leon"
-            fetch("https://community-open-weather-map.p.rapidapi.com/find?q="+ ciudad, {
+            fetch("https://community-open-weather-map.p.rapidapi.com/find?q=" + ciudad, {
                     "method": "GET",
                     "headers": {
-                    "x-rapidapi-key": "6d5a050519msh0f9bf2eee22a02bp101698jsn7a446bb828ba",
-                    "x-rapidapi-host": "community-open-weather-map.p.rapidapi.com"
+                        "x-rapidapi-key": "6d5a050519msh0f9bf2eee22a02bp101698jsn7a446bb828ba",
+                        "x-rapidapi-host": "community-open-weather-map.p.rapidapi.com"
                     }
                 })
                 .then(response => {
@@ -637,9 +637,8 @@
         integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous">
     </script>
     <!--Api de Google maps-->
-    <script
-        src="https://maps.googleapis.com/maps/api/js?key=AIzaSyA3HTGbR2g2fA9AMdMoXbAIYMz2dIONoFs&callback"
-        async defer></script>
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyADjOfdGIg-7JiqjoTstMN9el4g-nLhxxA&callback" async
+        defer></script>
 
 
     <!--Librerías de firebase-->
