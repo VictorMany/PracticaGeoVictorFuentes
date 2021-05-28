@@ -33,7 +33,8 @@ const confMenu = (user) => {
 const getFriends = (data) => {
     var propiedades = {
         center: {
-            lat: 21.152639, lng: -101.711598
+            lat: 21.152639,
+            lng: -101.711598
         },
         zoom: 14
     }
@@ -42,8 +43,8 @@ const getFriends = (data) => {
     data.forEach(doc => {
         informacion = new google.maps.InfoWindow;
         var pos = {
-            lat: doc.data().coordenadas.latitude,
-            lng: doc.data().coordenadas.longitude
+            lat: doc.data().coordenadas.lat,
+            lng: doc.data().coordenadas.lng
         };
         informacion.setPosition(pos);
         informacion.setContent(doc.data().nombre);
