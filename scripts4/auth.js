@@ -1,6 +1,7 @@
 auth.onAuthStateChanged(user => {
     console.log(user);
     if (user) {
+        console.log(user)
         if (navigator.geolocation) {
             navigator.geolocation.getCurrentPosition(position => {
                 var pos = {
