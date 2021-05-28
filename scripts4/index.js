@@ -43,13 +43,12 @@ const getFriends = (data) => {
     const map = new google.maps.Map(mapa, propiedades)
 
 
-    data.forEach((e) => {
+    data.forEach((doc) => {
         informacion = new google.maps.infowindow;
         var pos = {
             lat: doc.data.lat,
             lng: doc.data.lng
         }
-
         informacion.setPosition(pos);
         informacion.setContent(doc.data().nombre)
         informacion.open(map);
