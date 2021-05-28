@@ -38,6 +38,7 @@ const getFriends = (data) => {
 
     var mapa = document.getElementById("map")
     var map = new google.maps.Map(mapa, propiedades);
+    
 
     data.forEach(doc => {
         console.log(doc.data().coordenadas)
@@ -54,7 +55,7 @@ const getFriends = (data) => {
         }
         const marcador = new google.maps.Marker(propiedadesMarcador);
 
-        map.setCenter(pos);
+        
         const infowindow = new google.maps.InfoWindow({
             content: doc.data().nombre
         })
