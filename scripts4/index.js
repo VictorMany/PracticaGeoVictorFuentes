@@ -42,6 +42,7 @@ const getFriends = (data) => {
     var map = new google.maps.Map(mapa, propiedades);
     data.forEach(doc => {
         informacion = new google.maps.InfoWindow;
+        console.log(doc.data().coordenadas)
         var pos = {
             lat: doc.data().coordenadas.lat,
             lng: doc.data().coordenadas.lng
