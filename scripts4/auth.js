@@ -20,13 +20,12 @@ auth.onAuthStateChanged(user => {
                 confMenu(user);
             });
         }
-        else {
-            confMenu();
-            getFriends([]);
-        }
-    };
+    }
+    else {
+        confMenu();
+        getFriends([]);
+    }
 });
-
 
 
 
