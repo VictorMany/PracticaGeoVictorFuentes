@@ -30,19 +30,15 @@ const confMenu = (user) => {
 }
 
 
-
 const getFriends = (data) => {
     var propiedades = {
         center: {
-            lat: 21.2781027,
-            lng: -101.8064963
+            lat: 21.152639, lng: -101.711598
         },
         zoom: 14
-    };
-    const mapa = document.getElementById("map")
-    const map = new google.maps.Map(mapa, propiedades)
-    console.log("Esta es la data", data)
-
+    }
+    var mapa = document.getElementById("map")
+    var map = new google.maps.Map(mapa, propiedades);
     data.forEach(doc => {
         informacion = new google.maps.InfoWindow;
         var pos = {
@@ -52,8 +48,5 @@ const getFriends = (data) => {
         informacion.setPosition(pos);
         informacion.setContent(doc.data().nombre);
         informacion.open(map);
-
     });
-}
-
-
+};
