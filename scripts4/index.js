@@ -62,11 +62,11 @@ const getFriends = (data) => {
 
 
         marcador.addListener("click", () => {
-            infowindow.open(map, marcador);
+            informacion.open(map, marcador);
         })
 
         marcador.addListener("mouseover", () => {
-            infowindow.open(map, marcador);
+            informacion.open(map, marcador);
         })
     });
 };
