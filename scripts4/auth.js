@@ -14,6 +14,7 @@ auth.onAuthStateChanged(user => {
             //Actualizar con cada uno de los usuarios
         }))
             db.collection('friends').onSnapshot(snapshot => {
+                console.log("AQUI ESTA LA DATA DESDE ANTES", snapshot.docs)
                 getFriends(snapshot.docs);
             });
         confMenu(user);
