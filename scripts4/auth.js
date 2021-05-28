@@ -113,6 +113,7 @@ logInGoogle = () => {
         let html = `
         <p>Nombre: ${user.displayName}</p>
         <p>Correo: ${user.email}</p>
+       
         <div class="d-flex justify-content-center">
             <img style="width: 200px; height: 200px; border-radius: 50%;" src="${user.photoURL}"/>
         </div>
@@ -160,7 +161,6 @@ logInApple = () => {
         var token = result.credential.accessToken;
         console.log(token);
         var user = result.user;
-
         let html = `
         <p>Nombre: ${user.displayName}</p>
         <p>Correo: ${user.email}</p>
@@ -168,7 +168,6 @@ logInApple = () => {
             <img style="width: 200px; height: 200px; border-radius: 50%;" src="${user.photoURL}"/>
         </div>
         `;
-
 
         misDatos.innerHTML = html;
         let cerrar = document.getElementById('cerrar1');

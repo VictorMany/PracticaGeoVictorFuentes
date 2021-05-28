@@ -6,21 +6,10 @@ const misDatos = document.querySelector('.datosdelacuenta');
 const confMenu = (user) => {
     if (user) {
         db.collection('friends').doc(user.uid).get().then(doc => {
-            console.log(doc);
-            var nombre
-            if (doc.data().nombre != undefined)
-                nombre = doc.data().nombre
-            else
-                nombre = user.displayName
-
-
             const html = `
             <p>Nombre: ${doc.data().nombre}</p>
-            <p>Correo: ${nombre}</p>
-            <p>Teleono>: ${doc.data().telefono}</p>
-            <p>Direccion: ${doc.data().direccion}</p>
+            <p>Correo: ${user.email}</p>
             <p>Coordenadas: ${doc.data().coordenadas.lat}, ${doc.data().coordenadas.lng} </p>
-           
             `;
             misDatos.innerHTML = html;
         });
@@ -51,7 +40,6 @@ const getFriends = (data) => {
     var map = new google.maps.Map(mapa, propiedades);
 
     data.forEach(doc => {
-        informacion = new google.maps.InfoWindow;
 
         console.log(doc.data().coordenadas)
         var pos = {
@@ -59,8 +47,6 @@ const getFriends = (data) => {
             lng: doc.data().coordenadas.lng
         };
 
-        informacion.setContent(doc.data().nombre);
-        
         let propiedadesMarcador = {
             position: pos,
             map,
@@ -68,12 +54,17 @@ const getFriends = (data) => {
         }
         const marcador = new google.maps.Marker(propiedadesMarcador);
 
+        map.setCenter(pos);
+        const infowindow = new google.maps.InfoWindow({
+            content: doc.data().nombre
+        })
+
         marcador.addListener("click", () => {
-            informacion.open(map, marcador);
+            infowindow.open(map, marcador);
         })
 
         marcador.addListener("mouseover", () => {
-            informacion.open(map, marcador);
+            infowindow.open(map, marcador);
         })
     });
 };
