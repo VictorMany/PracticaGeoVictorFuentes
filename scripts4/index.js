@@ -38,7 +38,7 @@ const getFriends = (data) => {
         zoom: 14
     }
 
-   
+
 
     var mapa = document.getElementById("map")
     var map = new google.maps.Map(mapa, propiedades);
@@ -46,13 +46,9 @@ const getFriends = (data) => {
     data.forEach(doc => {
         informacion = new google.maps.InfoWindow;
 
-        let propiedadesMarcador = {
-            mapa,
-            title: "Marcardor"
-        }
 
-        
-        marcador = new google.maps.Marker(propiedadesMarcador);
+
+
 
         console.log(doc.data().coordenadas)
         var pos = {
@@ -63,7 +59,11 @@ const getFriends = (data) => {
         informacion.setContent(doc.data().nombre);
         informacion.open(map);
 
-        marcador.setPosition(pos);
-        marcador.setTitle(doc.data().nombre)
+        let propiedadesMarcador = {
+            mapa,
+            position: pos,
+            title: doc.data().nombre
+        }
+        marcador = new google.maps.Marker(propiedadesMarcador);
     });
 };
