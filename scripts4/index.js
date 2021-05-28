@@ -37,7 +37,7 @@ const getFriends = (data) => {
         },
         zoom: 14
     }
-    
+
     var mapa = document.getElementById("map")
     var map = new google.maps.Map(mapa, propiedades);
 
@@ -55,7 +55,7 @@ const getFriends = (data) => {
         informacion.open(map);
 
         marcador.setPosition(pos);
-        marcador.open(map)
+        marcador({ map })
         marcador.setTitle(doc.data().nombre)
     });
 };
