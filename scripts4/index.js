@@ -40,12 +40,16 @@ const getFriends = (data) => {
     var map = new google.maps.Map(mapa, propiedades);
 
     data.forEach(doc => {
-
         console.log(doc.data().coordenadas)
-        var pos = {
-            lat: doc.data().coordenadas.lat,
-            lng: doc.data().coordenadas.lng
-        };
+        try {
+            pos = {
+                lat: doc.data().coordenadas.lat,
+                lng: doc.data().coordenadas.lng
+            };
+        } catch (error) {
+            console.log(pos)
+        }
+
 
         let propiedadesMarcador = {
             position: pos,
