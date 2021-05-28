@@ -60,13 +60,13 @@ const getFriends = (data) => {
         };
 
         informacion.setContent(doc.data().nombre);
+        
         let propiedadesMarcador = {
             position: pos,
             map,
-            title: "Ciudad"
+            title: doc.data().nombre
         }
         const marcador = new google.maps.Marker(propiedadesMarcador);
-
 
         marcador.addListener("click", () => {
             informacion.open(map, marcador);
