@@ -7,9 +7,16 @@ const confMenu = (user) => {
     if (user) {
         db.collection('friends').doc(user.uid).get().then(doc => {
             console.log(doc);
+            var nombre
+            if (doc.data().nombre != undefined)
+                nombre = doc.data().nombre
+            else
+                nombre = user.name
+
+
             const html = `
             <p>Nombre: ${doc.data().nombre}</p>
-            <p>Correo: ${user.email}</p>
+            <p>Correo: ${nombre}</p>
             <p>Teleono>: ${doc.data().telefono}</p>
             <p>Direccion: ${doc.data().direccion}</p>
             <p>Coordenadas: ${doc.data().coordenadas.lat}, ${doc.data().coordenadas.lng} </p>

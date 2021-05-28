@@ -8,7 +8,7 @@ auth.onAuthStateChanged(user => {
                     lat: position.coords.latitude,
                     lng: position.coords.longitude
                 };
-
+                console.log(user.uid);
                 db.collection('friends').doc(user.uid).update({
                     coordenadas: pos
                 });
@@ -108,6 +108,7 @@ logInGoogle = () => {
     firebase.auth().signInWithPopup(provider).then((result) => {
         var token = result.credential.accessToken;
         console.log(token);
+
         var user = result.user;
         let html = `
         <p>Nombre: ${user.displayName}</p>
