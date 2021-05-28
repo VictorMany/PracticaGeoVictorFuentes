@@ -41,7 +41,7 @@ const getFriends = (data) => {
     };
     const mapa = document.getElementById("map")
     const map = new google.maps.Map(mapa, propiedades)
-
+    console.log("Esta es la data", data)
 
     data.forEach((doc) => {
         console.log("Hola", doc.data)
