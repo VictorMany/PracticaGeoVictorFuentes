@@ -38,6 +38,7 @@ const getFriends = (data) => {
 
     var mapa = document.getElementById("map")
     var map = new google.maps.Map(mapa, propiedades);
+    let pos = {}
 
     data.forEach(doc => {
         console.log(doc.data().coordenadas)
