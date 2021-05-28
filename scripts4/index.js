@@ -44,6 +44,7 @@ const getFriends = (data) => {
 
 
     data.forEach((doc) => {
+        console.log("Hola", doc.data)
         informacion = new google.maps.infowindow;
         var pos = {
             lat: doc.data.lat,
@@ -52,6 +53,6 @@ const getFriends = (data) => {
         informacion.setPosition(pos);
         informacion.setContent(doc.data().nombre)
         informacion.open(map);
-       
+
     });
 }
