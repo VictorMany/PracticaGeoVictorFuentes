@@ -27,6 +27,21 @@ const confMenu = (user) => {
         listalogged.forEach(item => item.style.display = 'none')
         listanonlogged.forEach(item => item.style.display = 'block')
     }
+}
+
+
+
+const getFriends = (data) => {
+    var propiedades = {
+        center: {
+            lat: 21.2781027,
+            lng: -101.8064963
+        },
+        zoom: 14
+    };
+    const mapa = document.getElementById("map")
+    const map = new google.maps.Map(mapa, propiedades)
+    console.log("Esta es la data", data)
 
     data.forEach(doc => {
         informacion = new google.maps.InfoWindow;
@@ -40,3 +55,5 @@ const confMenu = (user) => {
 
     });
 }
+
+
