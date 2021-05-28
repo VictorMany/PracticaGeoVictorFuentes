@@ -38,18 +38,20 @@ const getFriends = (data) => {
         zoom: 14
     }
 
-    let propiedadesMarcador = {
-        map,
-        title: "Marcardor"
-    }
-
-
+   
 
     var mapa = document.getElementById("map")
     var map = new google.maps.Map(mapa, propiedades);
 
     data.forEach(doc => {
         informacion = new google.maps.InfoWindow;
+
+        let propiedadesMarcador = {
+            mapa,
+            title: "Marcardor"
+        }
+
+        
         marcador = new google.maps.Marker(propiedadesMarcador);
 
         console.log(doc.data().coordenadas)
