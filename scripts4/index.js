@@ -11,7 +11,7 @@ const confMenu = (user) => {
             if (doc.data().nombre != undefined)
                 nombre = doc.data().nombre
             else
-                nombre = user.name
+                nombre = user.displayName
 
 
             const html = `

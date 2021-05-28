@@ -122,6 +122,9 @@ logInGoogle = () => {
         cerrar.click();
         formaingresar.reset();
         formaingresar.querySelector('.error').innerHTML = '';
+        return db.collection('friends').doc(user.uid).set({
+            nombre: user.displayName
+        });
     }).catch((err) => {
         console.log(err)
     })
