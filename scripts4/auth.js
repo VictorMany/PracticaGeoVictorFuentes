@@ -13,8 +13,6 @@ auth.onAuthStateChanged(user => {
 
             //Actualizar con cada uno de los usuarios
         }))
-
-
             db.collection('friends').onSnapshot(snapshot => {
                 getFriends(snapshot.docs);
             });

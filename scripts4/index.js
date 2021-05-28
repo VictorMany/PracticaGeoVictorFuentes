@@ -31,36 +31,28 @@ const confMenu = (user) => {
 
 
 
-const dishesList = document.getElementById('dishesList');
 const getFriends = (data) => {
-    if (data.length) {
-        let html = '';
+    var propiedades = {
+        center: {
+            lat: 21.2781027,
+            lng: -101.8064963
+        },
+        zoom: 14
+    };
+    const mapa = document.getElementById("map")
+    const map = new google.maps.Map(mapa, propiedades)
 
-        data.forEach(doc => {
-            const platillo = doc.data();
-            const column = `
-            <div class="col-12 col-md-4">
-                <img src="${platillo.image}"
-                    alt="platillo1">
-                <div class="row m-2 d-flex justify-content-between">
-                    <p>
-                    ${platillo.name}</p>
-                    <p class="text-danger">$${platillo.price}</p>
-                </div>
 
-                <a href="https://www.paypal.me/grupohernandezalba/${platillo.price}" target="_blank">
-                    <button class="btn btn-primary">Pagar ahora</button>
-                </a>
-            </div>
-            `;
+    data.forEach((e) => {
+        informacion = new google.maps.infowindow;
+        var pos = {
+            lat: doc.data.lat,
+            lng: doc.data.lng
+        }
 
-            html += column;
-
-        });
-
-        //dishesList.innerHTML = html;
-    }
-    else {
-        //dishesList.innerHTML = '<div style="text-align: center; width: 100%; padding-top: 2rem"><p> Por favor inicie sesión en nuestra aplicación para ver el menú</p></div>'
-    }
+        informacion.setPosition(pos);
+        informacion.setContent(doc.data().nombre)
+        informacion.open(map);
+       
+    });
 }
