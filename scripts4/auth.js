@@ -1,28 +1,37 @@
-auth.onAuthStateChanged(user => {
-    console.log(user);
+auth.onAuthStateChanged((user) => {
     if (user) {
-        if (navigator.geolocation.getCurrentPosition(position => {
-            var pos = {
-                lat: position.coords.latitude,
-                lng: position.coords.longitude
-            };
+        if (navigator.geolocation) {
+            navigator.geolocation.getCurrentPosition(position => {
+                db.collection('friends').doc(user.uid).update({
+                    coordenadas: {
+                        lat: position.coords.latitude,
+                        lng: position.coords.longitude
+                    }
+                });
 
-            db.collection('friends').doc(user.uid).update({
-                coordenadas: pos
             });
-
-            //Actualizar con cada uno de los usuarios
-        }))
-            db.collection('friends').onSnapshot(snapshot => {
-                console.log("AQUI ESTA LA DATA DESDE ANTES", snapshot.docs)
-                getFriends(snapshot.docs);
-            });
-        confMenu(user);
+        }
+        db.collection('friends').onSnapshot(snapshot => {
+            getFriends(snapshot.docs);
+            confMenu(user);
+        }, err => {
+            console.log(err.message);
+        });
+        
+        var name, email, photoUrl, uid, emailVerified;
+        name = user.displayName;
+        email = user.email;
+        photoUrl = user.photoURL;
+        emailVerified = user.emailVerified;
+        uid = user.uid;
+        console.log(name, email, photoUrl, emailVerified, uid);
     }
     else {
-        confMenu();
+        console.log('Usuario salió');
         getFriends([]);
+        confMenu();
     }
+
 });
 
 
