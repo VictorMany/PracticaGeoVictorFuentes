@@ -105,12 +105,10 @@ formaRegistrarse.addEventListener('submit', (e) => {
 
 logInGoogle = () => {
     var provider = new firebase.auth.GoogleAuthProvider();
-
     firebase.auth().signInWithPopup(provider).then((result) => {
         var token = result.credential.accessToken;
         console.log(token);
         var user = result.user;
-
         let html = `
         <p>Nombre: ${user.displayName}</p>
         <p>Correo: ${user.email}</p>
@@ -118,8 +116,6 @@ logInGoogle = () => {
             <img style="width: 200px; height: 200px; border-radius: 50%;" src="${user.photoURL}"/>
         </div>
         `;
-
-
         misDatos.innerHTML = html;
         let cerrar = document.getElementById('cerrar1');
         cerrar.click();
