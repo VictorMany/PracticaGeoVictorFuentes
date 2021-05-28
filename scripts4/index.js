@@ -46,24 +46,27 @@ const getFriends = (data) => {
     data.forEach(doc => {
         informacion = new google.maps.InfoWindow;
 
-
-
-
-
         console.log(doc.data().coordenadas)
         var pos = {
             lat: doc.data().coordenadas.lat,
             lng: doc.data().coordenadas.lng
         };
-        informacion.setPosition(pos);
-        informacion.setContent(doc.data().nombre);
-        informacion.open(map);
 
+        informacion.setContent(doc.data().nombre);
         let propiedadesMarcador = {
             position: pos,
             map,
             title: "Ciudad"
         }
         const marcador = new google.maps.Marker(propiedadesMarcador);
+
+
+        marcador.addListener("click", () => {
+            infowindow.open(map, marcador);
+        })
+
+        marcador.addListener("mouseover", () => {
+            infowindow.open(map, marcador);
+        })
     });
 };
