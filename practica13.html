@@ -22,16 +22,25 @@
 
 
     <div class="row" style="padding-top: 0.5rem;">
-      <div class="col-4" style="margin-bottom: 1rem;">
+      <div class="col-4 col-md-12" style="margin-bottom: 1rem;">
         <select name="tipo" id="tipo" class="form-control">
           <option value="atm">Cajero automático</option>
           <option value="dentist">Dentista</option>
           <option value="clothing_store">Boutique</option>
           <option value="store">Tienda</option>
+          <option value="lawyer">Abogado</option>
+          <option value="library">Biblioteca</option>
+          <option value="liquor_store">Tienda de licores</option>
+          <option value="movie_rental">Renta de películas
+          </option>
+          <option value="bank">Banco</option>
+          <option value="bar">Bar</option>
+          <option value="cafe">Café</option>
+          <option value="church">Templo</option>
         </select>
         <ul id="placesList"></ul>
       </div>
-      <div class="col-8">
+      <div class="col-8 col-md-12">
         <!--Div del mapa-->
         <div id="map" style="border-radius: 0.4rem"></div>
       </div>
@@ -94,7 +103,7 @@
           service.nearbySearch({
             location: pos,
             radius: 1000,
-            type: ['atm']
+            type: [valor]
           }, function (results, status, pagination) {
             if (status !== "OK") return;
             crearMarcadores(results)
