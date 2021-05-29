@@ -104,7 +104,7 @@
           service.nearbySearch({
             location: pos,
             radius: 1000,
-            type: valor
+            type: [valor]
           }, function (results, status, pagination) {
             if (status !== "OK") return;
             crearMarcadores(results)
