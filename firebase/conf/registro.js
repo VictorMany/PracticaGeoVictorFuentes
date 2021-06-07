@@ -1,5 +1,4 @@
 class Registro {
-
     constructor(id, nombre, mensaje) {
         this.id = id;
         this.nombre = nombre;
@@ -29,5 +28,4 @@ class Registro {
             mensaje: this.mensaje
         });
     };
-
 };

@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Near By Search Places</title>
+  <!-- Bootstrap -->
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+    integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+</head>
+
+<body>
+  <div class="container-fluid">
+    <div class="row" style="padding-top: 0.5rem;">
+      <div class="col-12">
+        <h2
+          style="padding: 0.5rem; border-radius: 0.3rem; background-color: rgb(0, 140, 255); color: rgb(255, 255, 255); text-align: center;">
+          Near by Search Places</h2>
+      </div>
+    </div>
+
+
+    <div class="row" style="padding-top: 0.5rem;">
+      <div class="col-12 col-md-4" style="padding: 0.5rem;                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  ">
+        <div
+          style="margin-bottom: 1rem; background-color: rgb(0, 0, 0); color: white; padding: 0.5rem; border-radius: 0.5rem; width: 100%; justify-self: center;">
+          <select name="tipo" id="tipo" class="form-control">
+            <option value="atm">Cajero automático</option>
+            <option value="dentist">Dentista</option>
+            <option value="clothing_store">Boutique</option>
+            <option value="store">Tienda</option>
+            <option value="lawyer">Abogado</option>
+            <option value="library">Biblioteca</option>
+            <option value="liquor_store">Tienda de licores</option>
+            <option value="movie_rental">Renta de películas
+            </option>
+            <option value="bank">Banco</option>
+            <option value="bar">Bar</option>
+            <option value="cafe">Café</option>
+            <option value="church">Templo</option>
+          </select>
+          <ul id="placesList"></ul>
+        </div>
+      </div>
+      <div class="col-12 col-md-8">
+        <!--Div del mapa-->
+        <div id="map" style="border-radius: 0.4rem"></div>
+      </div>
+    </div>
+
+
+  </div>
+
+  <!--Mis estilos globales-->
+  <style>
+    html,
+    body {
+      margin: 0px;
+      padding: 0px;
+    }
+
+    #map {
+      width: 100%;
+      height: 500px;
+    }
+  </style>
+
+  <!--Mis funcionalidad-->
+  <script>
+    var map;
+    function iniciaMapa() {
+      var coordenadas = {
+        lat: 21.3634964,
+        lng: -101.9291015
+      };
+
+      var props = {
+        center: coordenadas,
+        zoom: 12,
+        mapTypeId: 'terrain'
+      };
+      map = new google.maps.Map(document.getElementById('map'), props);
+    }
+
+    
+  </script>
+  <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+    integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous">
+  </script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+    integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous">
+  </script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+    integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous">
+  </script>
+  <!-- Google Maps -->
+  <script
+    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAv-m46ebIV9fqkE2fIBGeWunmGmBm2R24&libraries=places&callback=iniciaMapa"
+    async defer></script>
+
+</body>
+
+</html>
