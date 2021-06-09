@@ -12,7 +12,7 @@ const confMenu = (user) => {
             const html = '';
             if (doc.data().nombre != undefined) {
                 html = `
-                <p>Nombre: ${doc.data().nombre}</p>
+                <p>Nombre: ${user.displayName}</p>
                 <p>Correo: ${user.email}</p>
                 <p>Teleono>: ${doc.data().telefono}</p>
                 <p>Direccion: ${doc.data().direccion}</p>
