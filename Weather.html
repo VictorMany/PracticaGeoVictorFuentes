@@ -246,8 +246,8 @@
             <div class="col-12 col-md-6" style="margin-bottom: 1rem;">
                 <div id="datos"></div>
                 <div class="row w-100 d-flex justify-content-center" style="margin: 0;">
-                    <input type="text" class="col-8" id="inputCty" onchange="onchangeText()" name="ciudad"
-                        placeholder="Ciudad">
+                    <input type="text" class="col-8" id="inputCty" onchange="onchangeText()" onkeyup="onchangeText()"
+                        name="ciudad" placeholder="Ciudad">
                     <input type="button" class="col-4"
                         style="background-color: rgb(211, 61, 35); color: white; border-color: rgb(226, 61, 32); overflow: scroll;"
                         onclick="cargarData()" value="Buscar ciudad">
@@ -312,7 +312,10 @@
         var informacion = ""
 
         function iniciaMapa(ciudad) {
-            if (ciudad == undefined) ciudad = "leon"
+            if (ciudad == undefined) {
+                ciudad = "leon";
+                onchangeText()
+            }
             fetch("https://community-open-weather-map.p.rapidapi.com/find?q=" + ciudad, {
                     "method": "GET",
                     "headers": {
