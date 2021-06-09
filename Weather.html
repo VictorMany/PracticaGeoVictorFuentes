@@ -334,44 +334,42 @@
 
                             informacion +=
                                 "<p><strong>Nubosidad: </strong>" + datos.list[0].clouds.all + "%" + "<br>" +
-                                "<p><strong>Sensación térmica: </strong>" + (parseInt(datos.list[0].main
-                                    .feels_like) - 273.15) +
+                                "<p><strong>Sensación térmica: </strong>" + ((parseInt(datos.list[0].main
+                                    .feels_like) - 273.15).toFixed(2)) +
                                 "<br>" +
                                 "<p><strong>Humedad: </strong>" + datos.list[0].main.pressure + "<br>" +
-                                "<p><strong>Temperatura: </strong>" + (parseInt(datos.list[0].main.temp) -
-                                    273.15) + "<br>" +
-                                "<p><strong>Temperatura máxima: </strong>" + (parseInt(datos.list[0].main
-                                    .temp_max) - 273.15) +
+                                "<p><strong>Temperatura: </strong>" + ((parseInt(datos.list[0].main.temp) -
+                                    273.15).toFixed(2)) + "<br>" +
+                                "<p><strong>Temperatura máxima: </strong>" + ((parseInt(datos.list[0].main
+                                    .temp_max) - 273.15).toFixed(2)) +
                                 "<br>" +
-                                "<p><strong>Temperatura mínima: </strong>" + (parseInt(datos.list[0].main
-                                    .temp_min) - 273.15) +
+                                "<p><strong>Temperatura mínima: </strong>" + ((parseInt(datos.list[0].main
+                                    .temp_min) - 273.15).toFixed(2)) +
                                 "<br>"
 
-                            document.getElementById("imgIcon").src = "http://openweathermap.org/img/wn/" + datos
+                            document.getElementById("imgIcon").src =
+                                "http://openweathermap.org/img/wn/" + datos
                                 .list[0].weather[0].icon + "@2x.png"
                             cambiarGif(datos.list[0].clouds.all);
-                            document.getElementById("main").innerHTML = datos
+                            document.getElementById("main")
+                                .innerHTML = datos
                                 .list[0].weather[0].main + ", " + datos
-                                .list[0].weather[0].description
-                            document.getElementById("ciudad").innerHTML = datos.list[0].name + ", " + datos
-                                .list[0].sys.country
-                            document.getElementById("nubosidad").innerHTML =
+                                .list[0].weather[0].description document.getElementById("ciudad")
+                                .innerHTML = datos.list[0].name + ", " + datos
+                                .list[0].sys.country document.getElementById("nubosidad").innerHTML =
                                 "<strong>Nubosidad: </strong>" +
-                                datos.list[0]
-                                .clouds.all + "%"
+                                datos.list[0].clouds.all + "%"
                             document.getElementById("feelslike").innerHTML =
                                 "<strong>Sensación térmica: </strong>" + (parseInt(datos.list[
-                                    0].main.feels_like) - 273.15)
-                            document.getElementById("humedad").innerHTML = "<strong>Presión: </strong>" + datos
-                                .list[0].main
-                                .pressure
-                            document.getElementById("temperatura").innerHTML =
+                                    0].main.feels_like) - 273.15) document.getElementById("humedad")
+                                .innerHTML = "<strong>Presión: </strong>" + datos
+                                .list[0].main.pressure document.getElementById("temperatura").innerHTML =
                                 "<strong>Temperatura: </strong>" + (parseInt(datos.list[0]
-                                    .main.temp) - 273.15)
-                            document.getElementById("temperatura-max").innerHTML =
+                                    .main.temp) - 273.15) document.getElementById("temperatura-max")
+                                .innerHTML =
                                 "<strong>Temperatura máxima: </strong>" + (parseInt(datos
-                                    .list[0].main.temp_max) - 273.15)
-                            document.getElementById("temperatura-min").innerHTML =
+                                    .list[0].main.temp_max) - 273.15) document.getElementById(
+                                    "temperatura-min").innerHTML =
                                 "<strong>Temperatura mínima: </strong>" + (parseInt(datos
                                     .list[0].main.temp_min) - 273.15)
 
@@ -575,8 +573,10 @@
                                 }
                             );
                             map = new google.maps.Map(document.getElementById('map'), props);
-                            map.mapTypes.set('style_map2', styledMapTypeOcuro);
-                            map.setMapTypeId('style_map2');
+                            map
+                                .mapTypes.set('style_map2', styledMapTypeOcuro);
+                            map.setMapTypeId(
+                                'style_map2');
                             let propiedadesMarcador = {
                                 position: coordenadas,
                                 map,
