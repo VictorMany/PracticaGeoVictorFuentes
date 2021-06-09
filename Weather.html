@@ -30,200 +30,200 @@
 
 
 
-    <!--NAV BAR-->
-    <nav class="navbar navbar-expand-lg navbar-light bg-light">
-        <div class="container-fluid">
-            <strong><a class="navbar-brand" href="#">Brish Brash Brosh</a></strong>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarScroll"
-                aria-controls="navbarScroll" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse" id="navbarScroll">
-                <ul class="navbar-nav me-auto my-2 my-lg-0 navbar-nav-scroll" style="--bs-scroll-height: 100px;">
-                    <li class="nav-item logged">
-                        <a class="nav-link active" aria-current="page" href="#" data-toggle="modal"
-                            data-target="#myAccountmodal">Mi cuenta</a>
-                    </li>
+    <div class="flex-shrink-0">
 
-                    <li class="nav-item non-logged">
-                        <a class="nav-link" aria-current="page" href="#" data-toggle="modal"
-                            data-target="#logInModal">Ingresar</a>
-                    </li>
 
-                    <li class="nav-item non-logged">
-                        <a class="nav-link" aria-current="page" href="#" data-toggle="modal"
-                            data-target="#signInModal">Regístrarse</a>
-                    </li>
+        <!--NAV BAR-->
+        <nav class="navbar navbar-expand-lg navbar-light bg-light">
+            <div class="container-fluid">
+                <strong><a class="navbar-brand" href="#">Brish Brash Brosh</a></strong>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarScroll"
+                    aria-controls="navbarScroll" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarScroll">
+                    <ul class="navbar-nav me-auto my-2 my-lg-0 navbar-nav-scroll" style="--bs-scroll-height: 100px;">
+                        <li class="nav-item logged">
+                            <a class="nav-link active" aria-current="page" href="#" data-toggle="modal"
+                                data-target="#myAccountmodal">Mi cuenta</a>
+                        </li>
 
-                    <li class="nav-item">
-                        <a class="nav-link logged" href="#" id="salir" tabindex="-1">Salir
-                        </a>
-                    </li>
-                </ul>
+                        <li class="nav-item non-logged">
+                            <a class="nav-link" aria-current="page" href="#" data-toggle="modal"
+                                data-target="#logInModal">Ingresar</a>
+                        </li>
 
+                        <li class="nav-item non-logged">
+                            <a class="nav-link" aria-current="page" href="#" data-toggle="modal"
+                                data-target="#signInModal">Regístrarse</a>
+                        </li>
+
+                        <li class="nav-item">
+                            <a class="nav-link logged" href="#" id="salir" tabindex="-1">Salir
+                            </a>
+                        </li>
+                    </ul>
+
+                </div>
             </div>
-        </div>
-    </nav>
+        </nav>
 
-    <!-- Modal (INGRESAR)-->
-    <div class="modal fade" id="logInModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
-        aria-hidden="true">
-        <div class="modal-dialog" role="document">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title" id="micuentaModalLabel">Ingresa</h5>
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                        <span aria-hidden="true">&times;</span>
-                    </button>
-                </div>
-                <div class="modal-body">
-                    <form id="formLogIn">
-                        <div class="row">
-                            <div class="col-12 m-2">
-                                <input type="email" id="correo" class="form-control" required
-                                    placeholder="Introduce tu correo">
-                            </div>
-                        </div>
-                        <div class="row">
-                            <div class="col-12 m-2">
-                                <input type="password" id="contraseña" required class="form-control"
-                                    placeholder="Introduce tu contraseña">
-                            </div>
-                        </div>
-                        <div class="row text-center">
-                            <div class="col-12">
-                                <input type="submit" class="btn btn-primary col-12" value="Ingresar">
-                                <p class="error text-danger" style="background-color: white;"></p>
-                            </div>
-                        </div>
-                    </form>
-                </div>
-                <div class="row text-center">
-                    <div class="col-12" style="padding-left: 1.9rem; padding-right: 1.9rem; margin-bottom: 0.5rem;">
-                        <button class="btn btn-danger col-12" onclick="logInGoogle()">Iniciar
-                            sesion
-                            con Google</button>
+        <!-- Modal (INGRESAR)-->
+        <div class="modal fade" id="logInModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+            aria-hidden="true">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="micuentaModalLabel">Ingresa</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
                     </div>
-                </div>
-                <div class="modal-footer">
-                    <button type="button" id="cerrar1" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <!-- Modal (REGISTRARSE)-->
-    <div class="modal fade" id="signInModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
-        aria-hidden="true">
-        <div class="modal-dialog" role="document">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title" id="micuentaModalLabel">Regístrate</h5>
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                        <span aria-hidden="true">&times;</span>
-                    </button>
-                </div>
-                <div class="modal-body">
-                    <form id="formSignIn">
-                        <div class="row">
-                            <div class="col-12 m-2">
-                                <input type="text" id="rnombre" class="form-control" required
-                                    placeholder="Introduce tu nombre">
+                    <div class="modal-body">
+                        <form id="formLogIn">
+                            <div class="row">
+                                <div class="col-12 m-2">
+                                    <input type="email" id="correo" class="form-control" required
+                                        placeholder="Introduce tu correo">
+                                </div>
                             </div>
-                        </div>
-                        <div class="row">
-                            <div class="col-12 m-2">
-                                <input type="email" id="rcorreo" class="form-control" required
-                                    placeholder="Introduce tu correo">
+                            <div class="row">
+                                <div class="col-12 m-2">
+                                    <input type="password" id="contraseña" required class="form-control"
+                                        placeholder="Introduce tu contraseña">
+                                </div>
                             </div>
-                        </div>
-                        <div class="row">
-                            <div class="col-12 m-2">
-                                <input type="password" id="rcontraseña" required class="form-control"
-                                    placeholder="Introduce tu contraseña">
+                            <div class="row text-center">
+                                <div class="col-12">
+                                    <input type="submit" class="btn btn-primary col-12" value="Ingresar">
+                                    <p class="error text-danger" style="background-color: white;"></p>
+                                </div>
                             </div>
-                        </div>
-                        <div class="row">
-                            <div class="col-12 m-2">
-                                <input type="number" step="any" id="rtelefono" class="form-control" required
-                                    placeholder="Introduce tu telefono">
-                            </div>
-                        </div>
-                        <div class="row">
-                            <div class="col-12 m-2">
-                                <input type="text" id="rdireccion" class="form-control" required
-                                    placeholder="Introduce tu dirección">
-                            </div>
-                        </div>
-                        <div class="row text-center">
-                            <div class="col-12">
-                                <input type="submit" class="btn btn-primary col-12" value="Regístrarse">
-                                <p class="error text-danger" style="background-color: white;"></p>
-                            </div>
-                        </div>
-                    </form>
-                </div>
-                <div class="modal-footer">
-                    <button type="button" id="cerrar2" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <!-- Modal MiCuenta -->
-    <div class="modal fade" id="myAccountmodal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
-        aria-hidden="true">
-        <div class="modal-dialog" role="document">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title" id="micuentaModalLabel">Mi Cuenta</h5>
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                        <span aria-hidden="true">&times;</span>
-                    </button>
-                </div>
-                <div class="modal-body">
-                    <div class="row m-2">
-                        <div class="col-12 datosdelacuenta">
-                            Aquí va la info de su cuenta
+                        </form>
+                    </div>
+                    <div class="row text-center">
+                        <div class="col-12" style="padding-left: 1.9rem; padding-right: 1.9rem; margin-bottom: 0.5rem;">
+                            <button class="btn btn-danger col-12" onclick="logInGoogle()">Iniciar
+                                sesion
+                                con Google</button>
                         </div>
                     </div>
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
+                    <div class="modal-footer">
+                        <button type="button" id="cerrar1" class="btn btn-secondary"
+                            data-dismiss="modal">Cerrar</button>
+                    </div>
                 </div>
             </div>
         </div>
-    </div>
 
-
-
-
-
-
-    <div id="weatherBody" style="display: none;" class="container-fluid">
-        <div class="row" style="padding-top: 0.5rem;">
-            <div class="col-12 col-md-6" style="margin-bottom: 2rem;">
-                <div class="row d-flex justify-content-around">
-                    <h4 id="ciudad"
-                        style="padding: 0.5rem; border-radius: 0.3rem; background-color: rgba(255, 255, 255, 0.055); color: rgb(255, 255, 255); text-align: center;">
-                    </h4>
-                    <button style="width: 40px; height: 40px;" class="btn btn-primary"
-                        onclick="addCities()"><strong>+</strong></button>
-                </div>
-                <!--Div del mapa-->
-                <div style="color: white;">
-                    <div class="row w-100" style="align-content: center; justify-content: center;">
-                        <div> <img id="imgIcon" src="http://openweathermap.org/img/wn/03d@2x.png" alt="">
-                        </div>
-                        <div style="align-self: center; vertical-align: center; margin-top: 1rem;">
-                            <strong>
-                                <p id="main"></p>
-                            </strong>
-                        </div>
+        <!-- Modal (REGISTRARSE)-->
+        <div class="modal fade" id="signInModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+            aria-hidden="true">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="micuentaModalLabel">Regístrate</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        <form id="formSignIn">
+                            <div class="row">
+                                <div class="col-12 m-2">
+                                    <input type="text" id="rnombre" class="form-control" required
+                                        placeholder="Introduce tu nombre">
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-12 m-2">
+                                    <input type="email" id="rcorreo" class="form-control" required
+                                        placeholder="Introduce tu correo">
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-12 m-2">
+                                    <input type="password" id="rcontraseña" required class="form-control"
+                                        placeholder="Introduce tu contraseña">
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-12 m-2">
+                                    <input type="number" step="any" id="rtelefono" class="form-control" required
+                                        placeholder="Introduce tu telefono">
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-12 m-2">
+                                    <input type="text" id="rdireccion" class="form-control" required
+                                        placeholder="Introduce tu dirección">
+                                </div>
+                            </div>
+                            <div class="row text-center">
+                                <div class="col-12">
+                                    <input type="submit" class="btn btn-primary col-12" value="Regístrarse">
+                                    <p class="error text-danger" style="background-color: white;"></p>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" id="cerrar2" class="btn btn-secondary"
+                            data-dismiss="modal">Cerrar</button>
                     </div>
                 </div>
-                <div id="gif"
-                    style="border-radius: 0.5rem; 
+            </div>
+        </div>
+
+        <!-- Modal MiCuenta -->
+        <div class="modal fade" id="myAccountmodal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+            aria-hidden="true">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="micuentaModalLabel">Mi Cuenta</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        <div class="row m-2">
+                            <div class="col-12 datosdelacuenta">
+                                Aquí va la info de su cuenta
+                            </div>
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div id="weatherBody" style="display: none;" class="container-fluid">
+            <div class="row" style="padding-top: 0.5rem;">
+                <div class="col-12 col-md-6" style="margin-bottom: 2rem;">
+                    <div class="row d-flex justify-content-around">
+                        <h4 id="ciudad"
+                            style="padding: 0.5rem; border-radius: 0.3rem; background-color: rgba(255, 255, 255, 0.055); color: rgb(255, 255, 255); text-align: center;">
+                        </h4>
+                        <button style="width: 40px; height: 40px;" class="btn btn-primary"
+                            onclick="addCities()"><strong>+</strong></button>
+                    </div>
+                    <!--Div del mapa-->
+                    <div style="color: white;">
+                        <div class="row w-100" style="align-content: center; justify-content: center;">
+                            <div> <img id="imgIcon" src="http://openweathermap.org/img/wn/03d@2x.png" alt="">
+                            </div>
+                            <div style="align-self: center; vertical-align: center; margin-top: 1rem;">
+                                <strong>
+                                    <p id="main"></p>
+                                </strong>
+                            </div>
+                        </div>
+                    </div>
+                    <div id="gif"
+                        style="border-radius: 0.5rem; 
                     -webkit-background-size: cover;
                     -moz-background-size: cover;
                     -o-background-size: cover;
@@ -232,45 +232,44 @@
                     padding: 1rem;
                     height: 244px;
                     box-shadow: 0 0 16px 16px rgb(22, 22, 22) inset; background-image: url('./weatherApp/nublado.gif');">
-                    <div
-                        style="padding: 0.5rem; background-color: rgba(0, 0, 0, 0.418); height: 98%; border-radius: 0.5rem;">
-                        <p id="nubosidad" style="color: white;"></p>
-                        <p id="feelslike" style="color: white;"></p>
-                        <p id="humedad" style="color: white;"></p>
-                        <p id="temperatura" style="color: white;"></p>
-                        <p id="temperatura-max" style="color: white;"></p>
-                        <p id="temperatura-min" style="color: white;"></p>
+                        <div
+                            style="padding: 0.5rem; background-color: rgba(0, 0, 0, 0.418); height: 98%; border-radius: 0.5rem;">
+                            <p id="nubosidad" style="color: white;"></p>
+                            <p id="feelslike" style="color: white;"></p>
+                            <p id="humedad" style="color: white;"></p>
+                            <p id="temperatura" style="color: white;"></p>
+                            <p id="temperatura-max" style="color: white;"></p>
+                            <p id="temperatura-min" style="color: white;"></p>
+                        </div>
                     </div>
                 </div>
-            </div>
-            <div class="col-12 col-md-6" style="margin-bottom: 1rem;">
-                <div id="datos"></div>
-                <div class="row w-100 d-flex justify-content-center" style="margin: 0;">
-                    <input type="text" class="col-8" id="inputCty" onchange="onchangeText()" onkeyup="onchangeText()"
-                        name="ciudad" placeholder="Ciudad">
-                    <input type="button" class="col-4"
-                        style="background-color: rgb(211, 61, 35); color: white; border-color: rgb(226, 61, 32); overflow: scroll;"
-                        onclick="cargarData()" value="Buscar ciudad">
+                <div class="col-12 col-md-6" style="margin-bottom: 1rem;">
+                    <div id="datos"></div>
+                    <div class="row w-100 d-flex justify-content-center" style="margin: 0;">
+                        <input type="text" class="col-8" id="inputCty" onchange="onchangeText()"
+                            onkeyup="onchangeText()" name="ciudad" placeholder="Ciudad">
+                        <input type="button" class="col-4"
+                            style="background-color: rgb(211, 61, 35); color: white; border-color: rgb(226, 61, 32); overflow: scroll;"
+                            onclick="cargarData()" value="Buscar ciudad">
+                    </div>
+
+                    <h5
+                        style="padding: 0.5rem; border-radius: 0.3rem; background-color: rgba(0, 0, 0, 0.349); color: rgb(255, 255, 255); text-align: center;">
+                        Ubicación</h5>
+                    <!--Div main mapa-->
+                    <div id="map" style="border-radius: 0.4rem;"></div>
+                    <h4 style="color: rgb(231, 231, 231); margin-top: 0.5rem;">Ciudades Guardadas</h4>
+
+                    <select class="form-select" id="ciudades" style="width: 100%;" aria-label="Default select example">
+                        <option selected>Ciudades guardadas</option>
+                    </select>
                 </div>
 
-                <h5
-                    style="padding: 0.5rem; border-radius: 0.3rem; background-color: rgba(0, 0, 0, 0.349); color: rgb(255, 255, 255); text-align: center;">
-                    Ubicación</h5>
-                <!--Div main mapa-->
-                <div id="map" style="border-radius: 0.4rem;"></div>
-                <h4 style="color: rgb(231, 231, 231); margin-top: 0.5rem;">Ciudades Guardadas</h4>
-
-                <select class="form-select" id="ciudades" style="width: 100%;" aria-label="Default select example">
-                    <option selected>Ciudades guardadas</option>
-                </select>
             </div>
-
         </div>
+
+        <div style="color: white; text-align: center" id="welcome">Bienvenido a tu página del clima</div>
     </div>
-
-
-    <div style="color: white; text-align: center" id="welcome">Bienvenido a tu página del clima</div>
-
     <footer class=" footer mt-auto py-3 text-muted bg-light">
         <div class="container">
             <strong>
