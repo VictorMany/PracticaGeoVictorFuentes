@@ -9,12 +9,24 @@ const confMenu = (user) => {
         actualUser = user;
         db.collection('usuarios').doc(user.uid).get().then(doc => {
             console.log(doc);
-            const html = `
-            <p>Nombre: ${doc.data().nombre}</p>
-            <p>Correo: ${user.email}</p>
-            <p>Teleono>: ${doc.data().telefono}</p>
-            <p>Direccion: ${doc.data().direccion}</p>
-            `;
+            const html = '';
+            if (doc) {
+                html = `
+                <p>Nombre: ${doc.data().nombre}</p>
+                <p>Correo: ${user.email}</p>
+                <p>Teleono>: ${doc.data().telefono}</p>
+                <p>Direccion: ${doc.data().direccion}</p>
+                `;
+            }
+            else {
+                html = `
+                <p>Nombre: ${user.displayName}</p>
+                <p>Correo: ${user.email}</p>
+                <div class="d-flex justify-content-center">
+                    <img style="width: 200px; height: 200px; border-radius: 50%;" src="${user.photoURL}"/>
+                </div>
+                `;
+            }
             misDatos.innerHTML = html;
         });
         listalogged.forEach(item => {
