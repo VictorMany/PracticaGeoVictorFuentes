@@ -1,5 +1,3 @@
-const misDatos = document.querySelector('.datosdelacuenta');
-
 auth.onAuthStateChanged(user => {
     console.log(user);
     if (user) {
@@ -16,14 +14,6 @@ auth.onAuthStateChanged(user => {
             document.getElementById("welcome").style.display = "none"
         });
         confMenu(user);
-        let html = `
-        <p>Nombre: ${user.displayName}</p>
-        <p>Correo: ${user.email}</p>
-        <div class="d-flex justify-content-center">
-            <img style="width: 200px; height: 200px; border-radius: 50%;" src="${user.photoURL}"/>
-        </div>
-        `;
-        misDatos.innerHTML = html;
     }
     else {
         confMenu();
@@ -40,6 +30,8 @@ salir.addEventListener('click', (e) => {
     auth.signOut().then(() => {
         alert("El usuario ha salido del sistema");
         console.log("El usuario salió");
+
+        const misDatos = document.querySelector('.datosdelacuenta');
         misDatos.innerHTML = "";
     }).catch(err => {
         console.log(err);
@@ -129,7 +121,6 @@ logInGoogle = () => {
         cerrar.click();
         formaingresar.reset();
         formaingresar.querySelector('.error').innerHTML = '';
-
     }).catch((err) => {
         console.log(err)
     })
