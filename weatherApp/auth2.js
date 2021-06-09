@@ -25,7 +25,7 @@ auth.onAuthStateChanged(user => {
 
 
 
-        misDatos.innerHTML = htmlc;
+        misDatos.innerHTML = html;
 
         iniciaMapa();
         db.collection('ciudades/' + user.uid + '/ciudades').onSnapshot(snapshot => {
