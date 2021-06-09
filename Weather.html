@@ -249,7 +249,7 @@
                     <input type="text" class="col-8" id="inputCty" name="ciudad" placeholder="Ciudad">
                     <input type="button" class="col-4"
                         style="background-color: rgb(211, 61, 35); color: white; border-color: rgb(226, 61, 32); overflow: scroll;"
-                        onclick="cargarData()" value="Buscar ciudad">
+                        onclick="cargarData()" id="autocomplete" value="Buscar ciudad">
                 </div>
 
                 <h5
@@ -608,6 +608,12 @@
             var ciudad = document.getElementById("inputCty").value;
             console.log(ciudad);
             iniciaMapa(ciudad);
+
+            var autocompletado = document.getElementById('autocomplete');
+            autocomplete = new google.maps.places.Autocomplete(autocompletado, {
+                types: ['geocode']
+            });
+            autocomplete.setFields(['address_component', 'geometry']);
         }
 
 
@@ -639,8 +645,9 @@
         integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous">
     </script>
     <!-- Google Maps -->
-    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAv-m46ebIV9fqkE2fIBGeWunmGmBm2R24&callback" async
-        defer></script>
+    <script
+        src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAv-m46ebIV9fqkE2fIBGeWunmGmBm2R24&libraries=places&callback=iniciaMapa"
+        async defer></script>
 
 
     <!--Librerías de firebase-->
