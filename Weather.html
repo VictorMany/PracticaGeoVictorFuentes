@@ -246,7 +246,8 @@
             <div class="col-12 col-md-6" style="margin-bottom: 1rem;">
                 <div id="datos"></div>
                 <div class="row w-100 d-flex justify-content-center" style="margin: 0;">
-                    <input type="text" class="col-8" id="inputCty" onchange="onchangeText()" name="ciudad" placeholder="Ciudad">
+                    <input type="text" class="col-8" id="inputCty" onchange="onchangeText()" name="ciudad"
+                        placeholder="Ciudad">
                     <input type="button" class="col-4"
                         style="background-color: rgb(211, 61, 35); color: white; border-color: rgb(226, 61, 32); overflow: scroll;"
                         onclick="cargarData()" value="Buscar ciudad">
@@ -311,7 +312,6 @@
         var informacion = ""
 
         function iniciaMapa(ciudad) {
-
             if (ciudad == undefined) ciudad = "leon"
             fetch("https://community-open-weather-map.p.rapidapi.com/find?q=" + ciudad, {
                     "method": "GET",
@@ -334,13 +334,17 @@
 
                             informacion +=
                                 "<p><strong>Nubosidad: </strong>" + datos.list[0].clouds.all + "%" + "<br>" +
-                                "<p><strong>Sensación térmica: </strong>" + datos.list[0].main.feels_like +
+                                "<p><strong>Sensación térmica: </strong>" + (parseInt(datos.list[0].main
+                                    .feels_like) - 273.15) +
                                 "<br>" +
                                 "<p><strong>Humedad: </strong>" + datos.list[0].main.pressure + "<br>" +
-                                "<p><strong>Temperatura: </strong>" + datos.list[0].main.temp + "<br>" +
-                                "<p><strong>Temperatura máxima: </strong>" + datos.list[0].main.temp_max +
+                                "<p><strong>Temperatura: </strong>" + (parseInt(datos.list[0].main.temp) -
+                                    273.15) + "<br>" +
+                                "<p><strong>Temperatura máxima: </strong>" + (parseInt(datos.list[0].main
+                                    .temp_max) - 273.15) +
                                 "<br>" +
-                                "<p><strong>Temperatura mínima: </strong>" + datos.list[0].main.temp_min +
+                                "<p><strong>Temperatura mínima: </strong>" + (parseInt(datos.list[0].main
+                                    .temp_min) - 273.15) +
                                 "<br>"
 
                             document.getElementById("imgIcon").src = "http://openweathermap.org/img/wn/" + datos
@@ -582,7 +586,6 @@
                             }
                             const marcador = new google.maps.Marker(propiedadesMarcador);
 
-
                             const infowindow = new google.maps.InfoWindow({
                                 content: informacion,
                             })
@@ -618,7 +621,6 @@
             autocomplete.setFields(['address_component', 'geometry']);
         }
 
-
         function cambiarGif(gif) {
             console.log(gif);
             let numero = parseInt(gif.slice(0, -1));
@@ -627,10 +629,13 @@
             if (numero < 2) {
                 console.log("Esta soleado");
                 document.getElementById("gif").style.backgroundImage = "url('./weatherApp/elise.gif')"
-            } else if (numero > 2 && numero < 5) {
+            } else if (numero > 2 && numero <= 4) {
+                console.log("Esta medionublado");
+                document.getElementById("gif").style.backgroundImage = "url('./weatherApp/poco_nublado.gif')"
+            } else if (numero > 4 && numero < 6) {
                 console.log("Esta nublado");
-
-            } else if (numero >= 5) {
+                document.getElementById("gif").style.backgroundImage = "url('./weatherApp/nublado.gif')"
+            } else if (numero >= 6) {
                 console.log("Esta lloviendo");
                 document.getElementById("gif").style.backgroundImage = "url('./weatherApp/lluvia.gif')"
 
