@@ -360,22 +360,20 @@
                                 datos.list[0]
                                 .clouds.all + "%"
                             document.getElementById("feelslike").innerHTML =
-                                "<strong>Sensación térmica: </strong>" + datos.list[
-                                    0].main.feels_like - 273.15
+                                "<strong>Sensación térmica: </strong>" + (parseInt(datos.list[
+                                    0].main.feels_like) - 273.15)
                             document.getElementById("humedad").innerHTML = "<strong>Presión: </strong>" + datos
                                 .list[0].main
                                 .pressure
                             document.getElementById("temperatura").innerHTML =
-                                "<strong>Temperatura: </strong>" + datos.list[0]
-                                .main.temp - 273.15
+                                "<strong>Temperatura: </strong>" + (parseInt(datos.list[0]
+                                    .main.temp) - 273.15)
                             document.getElementById("temperatura-max").innerHTML =
-                                "<strong>Temperatura máxima: </strong>" + datos
-                                .list[0]
-                                .main.temp_max - 273.15
+                                "<strong>Temperatura máxima: </strong>" + (parseInt(datos
+                                    .list[0].main.temp_max) - 273.15)
                             document.getElementById("temperatura-min").innerHTML =
-                                "<strong>Temperatura mínima: </strong>" + datos
-                                .list[0]
-                                .main.temp_min - 273.15
+                                "<strong>Temperatura mínima: </strong>" + (parseInt(datos
+                                    .list[0].main.temp_min) - 273.15)
 
                             var props = {
                                 center: coordenadas,
@@ -629,13 +627,13 @@
             if (numero < 25) {
                 console.log("Esta soleado");
                 document.getElementById("gif").style.backgroundImage = "url('./weatherApp/elise.gif')"
-            } else if (numero > 25 && numero <= 55) {
+            } else if (numero > 25 && numero <= 60) {
                 console.log("Esta medionublado");
                 document.getElementById("gif").style.backgroundImage = "url('./weatherApp/poco_nublado.gif')"
-            } else if (numero > 55 && numero < 70) {
+            } else if (numero > 60 && numero < 90) {
                 console.log("Esta nublado");
                 document.getElementById("gif").style.backgroundImage = "url('./weatherApp/nublado.gif')"
-            } else if (numero >= 70) {
+            } else if (numero >= 90) {
                 console.log("Esta lloviendo");
                 document.getElementById("gif").style.backgroundImage = "url('./weatherApp/lluvia.gif')"
 
