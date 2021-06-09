@@ -246,10 +246,10 @@
             <div class="col-12 col-md-6" style="margin-bottom: 1rem;">
                 <div id="datos"></div>
                 <div class="row w-100 d-flex justify-content-center" style="margin: 0;">
-                    <input type="text" class="col-8" id="inputCty" name="ciudad" placeholder="Ciudad">
+                    <input type="text" class="col-8" id="inputCty" onchange="onchangeText()" name="ciudad" placeholder="Ciudad">
                     <input type="button" class="col-4"
                         style="background-color: rgb(211, 61, 35); color: white; border-color: rgb(226, 61, 32); overflow: scroll;"
-                        onclick="cargarData()" id="autocomplete" value="Buscar ciudad">
+                        onclick="cargarData()" value="Buscar ciudad">
                 </div>
 
                 <h5
@@ -608,8 +608,10 @@
             var ciudad = document.getElementById("inputCty").value;
             console.log(ciudad);
             iniciaMapa(ciudad);
+        }
 
-            var autocompletado = document.getElementById('autocomplete');
+        function onchangeText() {
+            var autocompletado = document.getElementById('inputCty');
             autocomplete = new google.maps.places.Autocomplete(autocompletado, {
                 types: ['geocode']
             });
