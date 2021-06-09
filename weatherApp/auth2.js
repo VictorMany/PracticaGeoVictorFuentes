@@ -3,6 +3,7 @@ auth.onAuthStateChanged(user => {
 
     if (user) {
         let html = ''
+
         if (user.photoURL) {
             html = `
             <p>Nombre: ${user.displayName}</p>
@@ -15,13 +16,10 @@ auth.onAuthStateChanged(user => {
         }
         else {
             html = `
-            <p>Nombre: ${doc.data().nombre}</p>
+            <p>Nombre: ${user.displayName}</p>
             <p>Correo: ${user.email}</p>
-            <p>Teleono>: ${doc.data().telefono}</p>
-            <p>Direccion: ${doc.data().direccion}</p>
         `;
         }
-
 
 
 
