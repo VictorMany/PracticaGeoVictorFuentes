@@ -10,7 +10,7 @@ const confMenu = (user) => {
         db.collection('usuarios').doc(user.uid).get().then(doc => {
             console.log(doc);
             const html = '';
-            if (doc) {
+            if (doc.data().nombre != undefined) {
                 html = `
                 <p>Nombre: ${doc.data().nombre}</p>
                 <p>Correo: ${user.email}</p>
