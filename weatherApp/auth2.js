@@ -1,6 +1,34 @@
 auth.onAuthStateChanged(user => {
     console.log(user);
+
     if (user) {
+        let html = ''
+        if (user.photoURL) {
+            html = `
+            <p>Nombre: ${user.displayName}</p>
+            <p>Correo: ${user.email}</p>
+            <div class="d-flex justify-content-center">
+                <img style="width: 200px; height: 200px; border-radius: 50%;" src="${user.photoURL}"/>
+            </div>
+        `;
+
+        }
+        else {
+            html = `
+            <p>Nombre: ${doc.data().nombre}</p>
+            <p>Correo: ${user.email}</p>
+            <p>Teleono>: ${doc.data().telefono}</p>
+            <p>Direccion: ${doc.data().direccion}</p>
+        `;
+        }
+
+
+
+
+
+
+        misDatos.innerHTML = htmlc;
+
         iniciaMapa();
         db.collection('ciudades/' + user.uid + '/ciudades').onSnapshot(snapshot => {
             console.log(snapshot.docs);
