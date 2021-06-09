@@ -349,7 +349,7 @@
 
                             document.getElementById("imgIcon").src = "http://openweathermap.org/img/wn/" + datos
                                 .list[0].weather[0].icon + "@2x.png"
-                            cambiarGif(datos.list[0].weather[0].icon);
+                            cambiarGif(datos.list[0].clouds.all);
                             document.getElementById("main").innerHTML = datos
                                 .list[0].weather[0].main + ", " + datos
                                 .list[0].weather[0].description
@@ -361,21 +361,21 @@
                                 .clouds.all + "%"
                             document.getElementById("feelslike").innerHTML =
                                 "<strong>Sensación térmica: </strong>" + datos.list[
-                                    0].main.feels_like
+                                    0].main.feels_like - 273.15
                             document.getElementById("humedad").innerHTML = "<strong>Presión: </strong>" + datos
                                 .list[0].main
                                 .pressure
                             document.getElementById("temperatura").innerHTML =
                                 "<strong>Temperatura: </strong>" + datos.list[0]
-                                .main.temp
+                                .main.temp - 273.15
                             document.getElementById("temperatura-max").innerHTML =
                                 "<strong>Temperatura máxima: </strong>" + datos
                                 .list[0]
-                                .main.temp_max
+                                .main.temp_max - 273.15
                             document.getElementById("temperatura-min").innerHTML =
                                 "<strong>Temperatura mínima: </strong>" + datos
                                 .list[0]
-                                .main.temp_min
+                                .main.temp_min - 273.15
 
                             var props = {
                                 center: coordenadas,
@@ -623,19 +623,19 @@
 
         function cambiarGif(gif) {
             console.log(gif);
-            let numero = parseInt(gif.slice(0, -1));
+            let numero = parseInt(gif);
             document.getElementById("gif").style.backgroundImage = "url('./weatherApp/nublado.gif')"
 
-            if (numero < 2) {
+            if (numero < 25) {
                 console.log("Esta soleado");
                 document.getElementById("gif").style.backgroundImage = "url('./weatherApp/elise.gif')"
-            } else if (numero > 2 && numero <= 4) {
+            } else if (numero > 25 && numero <= 55) {
                 console.log("Esta medionublado");
                 document.getElementById("gif").style.backgroundImage = "url('./weatherApp/poco_nublado.gif')"
-            } else if (numero > 4 && numero < 6) {
+            } else if (numero > 55 && numero < 70) {
                 console.log("Esta nublado");
                 document.getElementById("gif").style.backgroundImage = "url('./weatherApp/nublado.gif')"
-            } else if (numero >= 6) {
+            } else if (numero >= 70) {
                 console.log("Esta lloviendo");
                 document.getElementById("gif").style.backgroundImage = "url('./weatherApp/lluvia.gif')"
 
