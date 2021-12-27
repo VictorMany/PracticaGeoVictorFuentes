@@ -9,26 +9,31 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl" crossorigin="anonymous">
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootswatch/5.1.3/morph/bootstrap.min.css"
+        integrity="sha512-P74ekVMF6EUCnLTSVOkPjp3DWmXYmTHmr+Q3dMnVqH8e1O2z2vYtSEHEprV2Xsc7fT3wrLp7bUoI6nR/fwU7Gg=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
 </head>
 
-<body>
+<body class="">
 
     <nav class="navbar navbar-expand-lg navbar-dark text-white" style="background-color: #122D40;">
         <div class="container-fluid">
-            <a class="navbar-brand" href="#">
-                <div
-                    style="width: 110px; height: 90px; background-color: rgb(255, 255, 255); padding: 0.5rem; border-radius: 1rem;">
-                    <img src="https://media.discordapp.net/attachments/839894119451066378/839894484237287434/LogoPhoenix.png?width=626&height=475"
-                        alt="Home" style="height: 100%;" class="d-inline-block align-top">
+            <div class="row">
+                <div class="d-flex justify-content-start align-items-center">
+                    <a class="navbar-brand" href="#">
+                        <div class="div-img-logo" style="background-color: rgb(255, 255, 255); border-radius: 0.5rem">
+                            <img src="https://media.discordapp.net/attachments/839894119451066378/839894484237287434/LogoPhoenix.png?width=626&height=475"
+                                alt="Home" style="height: 100%;" class="d-inline-block align-top">
+                        </div>
+                    </a>
+                    <a class="nav-link" style="color: white;"><strong class="title"> RED CANDLE
+                            SYSTEMS</strong> </a>
                 </div>
-            </a>
-            <a class="nav-link" style="color: white;"><strong style="font-size: 30px; margin-left: -1rem;"> RED CANDLE
-                    SYSTEMS</strong> </a>
+            </div>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup"
                 aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
-
             <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
                 <div class="navbar-nav">
                     <a class="nav-link" href="#servicios">Servicios</a>
@@ -40,55 +45,51 @@
     </nav>
 
 
-    <div class="container-fluid mt-4" data-aos="zoom-in" style="width: 100%; padding: 1rem; padding-bottom: 1rem;">
+    <div class="container-fluid mt-2" data-aos="zoom-in" style="padding: 1rem; padding-bottom: 0.6rem;">
         <div id="carouselExampleControls" class="carousel slide" data-bs-ride="carousel">
             <div class="carousel-inner">
 
                 <div class="carousel-item active">
-                    <div class="d-block w-100 fondo fondoespecial"
-                        style="height: 500px; border-radius: 1rem; padding-top: 7%; padding-left: 5rem;" alt="...">
-                        <div
-                            style="background-color: #1c5172a1; width: fit-content; padding: 1rem 1rem 1rem 1rem; border-radius: 0.3rem; margin-left: 3rem;">
-                            <div style="margin-left: -2rem;" class="row">
-                                <h1>PROTEGIENDO</h1>
-                            </div>
-                            <div style="margin-left: -2rem;" class="row">
-                                <h1>LO QUE MÁS IMPORTA,</h1>
-                            </div>
-                            <div style="margin-left: -2rem;" class="row">
-                                <h1>TU SALUD!</h1>
+                    <div class="d-block w-100 fondo fondoespecial d-flex justify-content-center align-items-center"
+                        style="height: 300px; border-radius: 1rem; padding: 2rem;">
+
+                        <div class="row" style="background-color: #1c5172a1; padding: 1rem; border-radius: 0.3rem;">
+                            <div class="col">
+                                <h2>Protegiendo lo que más importa, tu salud!</h2>
                             </div>
                         </div>
+
                     </div>
                 </div>
 
                 <div class="carousel-item">
-                    <div style="height: 500px; border-radius: 1rem; padding-top: 7%; padding-left: 5rem;"
-                        class="d-block w-100 fondo fondo2">
-                        <div class="row">
-                            <h1>BIOMEDICAL</h1>
+                    <div style="height: 300px; border-radius: 1rem;" class="w-100 fondo fondo2 ">
+                        <div class="container h-100 py-5" style="width: 80%;">
+                            <div class="row d-flex justify-content-center align-items-center h-100">
+                                <div class="col text-center">
+                                    <h1>BIOMEDICAL MANAGEMENT SYSTEM</h1>
+                                </div>
+                            </div>
                         </div>
-                        <div class="row">
-                            <h1>MANAGEMENT</h1>
-                        </div>
-                        <div class="row">
-                            <h1>SYSTEM</h1>
-                        </div>
+
                     </div>
                 </div>
 
                 <div class="carousel-item">
-                    <div style="height: 500px; border-radius: 1rem; padding-top: 7%;"
-                        class="d-block w-100 fondo fondo3">
-                        <div class="row text-center">
-                            <h1 style="margin-left: -1rem;">Gestión de mantenimientos</h1>
-                        </div>
-                        <div class="row">
-                            <h2 style=" padding: 0 5rem 0 5rem; color: rgb(209, 209, 209); margin-left: -0.5rem;">
-                                Realizar mantenimientos asistidos
-                                por el ordenador brindando seguridad y confianza</h2>
+                    <div style="height: 300px; border-radius: 1rem;"
+                        class="d-block fondo fondo3 d-flex justify-content-center align-items-center px-5">
+
+                        <div class="row" style="background-color: #1c5172a1; padding: 1rem; border-radius: 0.3rem;">
+                            <div class="col text-center">
+                                <h1>Gestión de mantenimientos</h1>
+                                <p style="color: rgb(255, 255, 255);">
+                                    Realizar mantenimientos asistidos
+                                    por el ordenador brindando seguridad y confianza</p>
+                            </div>
                         </div>
                     </div>
+
+
                 </div>
 
                 <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControls"
@@ -111,7 +112,7 @@
         <div class="container">
             <div class="row">
                 <div class="col-12">
-                    <h1 class="mt-3">¿Quiénes somos?</h1>
+                    <h1 class="mt-3" style="color:white">¿Quiénes somos?</h1>
                     <p style="color: rgb(224, 222, 222);">Somos una empresa que se dedica al desarrollo de software.
                         Utilizando las últimas tecnologías y los mejores estándares de calidad.
 
@@ -125,10 +126,9 @@
         </div>
     </div>
 
-    <div class="row">
-        <div class="col-12 col-md-7">
-            <div class="container-fluid mt-3"
-                style="background-color: white; color: #122D40; border-color: #122D40; border-width: 2;">
+    <div class="row w-100" style="margin-bottom: -2rem;">
+        <div class="col-12 col-md-8">
+            <div class="container-fluid mt-3" style="color: #122D40;">
                 <div class="container">
                     <div class="row">
                         <div class="col-12">
@@ -175,99 +175,93 @@
                 </div>
             </div>
         </div>
-        <div class="col-12 d-flex justify-content-center col-md-5">
-            <div class="justify-content-center">
-
+        <div class="col-12 col-md-4 d-flex justify-content-center p-4 ps-5">
+            <div class="row d-flex justify-content-center w-100">
                 <img src="https://media.discordapp.net/attachments/839894119451066378/843955298263760966/image.jpg?width=525&height=475"
-                    style="height: 350px; width: 360px; align-self: center;" />
+                    style="height: auto; width: 100%; align-self: center; border-radius: 8%;" />
 
                 <a class="nav-link"
                     href="https://drive.google.com/file/d/1Qg2JLBVahrvRVnWRqnIFoay8vjDxlWZx/view?usp=sharing"
                     target="_blanck">
 
-                    <button type="button" class="btn btn-primary w-100">
-                        <img src="./Images/gift.gif" style="width: auto; height: 50px;" alt="">
-                        Características,
-                        ¿Cómo funciona?</button></a>
+                    <button type="button" class="btn w-100" style="background-color: rgb(38, 165, 238); color: white;">
+                        <img src="./Images/gift.gif" style="width: auto; height: 30px;" alt="">
+                        Funciones</button></a>
             </div>
         </div>
     </div>
 
-
     <!--   DE AQUI PARAABJO -->
-    <div class="row">
+    <div class="p-5 w-100">
+        <div style="border-radius: 0.5rem;" class="bg-white row">
+            <div class="col-12 d-flex justify-content-center col-md-4 ">
+                <img src="https://images.vexels.com/media/users/3/214884/isolated/preview/da31fdd4352e8092e2ebb9d95add700b-icono-de-trazo-de-etiqueta-de-precio-by-vexels.png"
+                    style="height: 250px; width: 260px; align-self: center;" />
+            </div>
+            <div class="col-12 col-md-8" style="padding-right: 2rem;">
+                <div class="container-fluid mt-2">
 
-        <div class="col-12 d-flex justify-content-center col-md-5">
-            <img src="https://images.vexels.com/media/users/3/214884/isolated/preview/da31fdd4352e8092e2ebb9d95add700b-icono-de-trazo-de-etiqueta-de-precio-by-vexels.png"
-                style="height: 250px; width: 260px; align-self: center;" />
-        </div>
-        <div class="col-12 col-md-7">
-            <div class="container-fluid mt-3"
-                style="background-color: white; color: #122D40; border-color: #122D40; border-width: 2;">
-
-                <div class="row">
-                    <div class="col-12">
-                        <h3>Ofertas y precios</h3>
-                        <p style="color: #122D40">
-                            Contamos con licencia de uso del sistema con todos los servicios (Mantenimientos,
-                            soporte, actualizaciones) incluidos en paquetes con diferentes precios dependiendo del
-                            plan que elijas y que mejor te convenga.
-                            <br>
+                    <div class="row">
+                        <div class="col-12">
+                            <h3>Ofertas y precios</h3>
+                            <p style="color: #122D40">
+                                Contamos con licencia de uso del sistema con todos los servicios (Mantenimientos,
+                                soporte, actualizaciones) incluidos en paquetes con diferentes precios dependiendo del
+                                plan que elijas y que mejor te convenga.
+                                <br>
 
 
-                            <strong>
-                                <h6>Nuestros planes de pago</h6>
-                            </strong>
-                            <ul>
-                                <li>
-                                    Pagos mensuales en contratos de 1 año
-                                </li>
-                                <li>
-                                    Pagos mensuales en contratos de 2 años con descuento
-                                </li>
+                                <strong>
+                                    <h6>Nuestros planes de pago</h6>
+                                </strong>
+                                <ul>
+                                    <li>
+                                        Pagos mensuales en contratos de 1 año
+                                    </li>
+                                    <li>
+                                        Pagos mensuales en contratos de 2 años con descuento
+                                    </li>
 
-                                <li>
-                                    Pagos mensuales en contratos de 1 año con registros limitados
-                                </li>
+                                    <li>
+                                        Pagos mensuales en contratos de 1 año con registros limitados
+                                    </li>
 
-                                <li>
-                                    Pagos mensuales en contratos de 1 año con usuarios limitados
-                                </li>
+                                    <li>
+                                        Pagos mensuales en contratos de 1 año con usuarios limitados
+                                    </li>
 
-                            </ul>
-                            <br>
-                            <p style="background-color: white; color: #122D40;">Si desea un plan personalizado, <a
-                                    href="#contact">contáctenos</a> para poder ofrecerle una
-                                cotización que
-                                mejor le convenga</p>
-                        </p>
+                                </ul>
+                                <br>
+                                <p style="color: #122D40;">Si desea un plan personalizado, <a
+                                        href="#contact">contáctenos</a> para poder ofrecerle una
+                                    cotización que
+                                    mejor le convenga</p>
+                            </p>
+
+                        </div>
 
                     </div>
 
                 </div>
-
             </div>
         </div>
+
     </div>
 
-
-
-    <div class="container-fluid mt-3" style="background-color: #1C5172; color: white;">
+    <div class="container-fluid" style="background-color: #1C5172; color: white;">
         <div class="container">
             <div class="row">
-                <div class="col-12 text-center">
-                    <h3>Principales funcionalidades de nuestro sistema BMS</h3>
+                <div class="col-12 text-center p-3 pt-4">
+                    <h2 class="text-white">Principales funcionalidades de nuestro sistema BMS</h2>
                 </div>
-
             </div>
         </div>
     </div>
 
-    <div class="container-fluid py-5 bg-light" style="border-radius: 1rem;">
+    <div class="container-fluid py-3">
         <div class="container">
-            <div class="row">
-
-                <div data-aos="zoom-in" class="col-12 col-md-3 bg-white">
+            <div class="row bg-white" style="border-radius: 0.5rem;">
+                <div data-aos="zoom-in" class="col-12 col-md-3">
                     <div style="border-radius: 1rem; height: 95%" class="card-color">
                         <div style="margin: 0.8rem;">
                             <a name="servicios"></a>
@@ -287,7 +281,7 @@
 
 
 
-                <div data-aos="zoom-in" class="col-12 col-md-3 bg-white">
+                <div data-aos="zoom-in" class="col-12 col-md-3">
                     <div style="border-radius: 1rem; height: 95%" class="card-color">
                         <div style="margin: 0.8rem;">
                             <a name="servicios"></a>
@@ -304,7 +298,7 @@
 
 
 
-                <div data-aos="zoom-in" class="col-12 col-md-3 bg-white">
+                <div data-aos="zoom-in" class="col-12 col-md-3">
                     <div style="border-radius: 1rem; height: 95%" class="card-color">
                         <div style="margin: 0.8rem;">
                             <a name="servicios"></a>
@@ -329,7 +323,7 @@
 
 
 
-                <div data-aos="zoom-in" class="col-12 col-md-3 bg-white">
+                <div data-aos="zoom-in" class="col-12 col-md-3">
                     <div style="border-radius: 1rem; height: 95%" class="card-color">
                         <div style="margin: 0.8rem;">
                             <img class="pt-2" src="./Images/Calendario.png" alt="Imagen 3">
@@ -346,16 +340,20 @@
         </div>
     </div>
 
+    <div class="pb-4">
+        <div class="row justify-content-center w-100 ps-5">
+            <h3 class="text-center">Mapa de ubicación <img data-aos="zoom-in" src="./Images/ubicacion.svg"
+                    style="width: 60px; height: 60px;"></h3>
+        </div>
 
-    <div class="row justify-content-center mt-1">
-        <h3 class="text-center col-6">MAPA DE UBICACION <img data-aos="zoom-in" class="col-1"
-                src="./Images/ubicacion.svg" style="width: 60px; height: 60px;" alt=""></h3>
+        <div class="col-12 d-flex justify-content-center">
+            <div style="width: 80%; ">
+                <iframe id="mapa"
+                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d6630.061582575643!2d-101.71432388729497!3d21.152545397169142!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x842bc06e4e1d5a79%3A0x40248ea06dc675dc!2sUniversidad%20De%20La%20Salle%20Baj%C3%ADo%20Campus%20Campestre!5e0!3m2!1ses-419!2smx!4v1636664096882!5m2!1ses-419!2smx"
+                    width="100%" height="400px" allowfullscreen="" loading="lazy"></iframe>
+            </div>
+        </div>
     </div>
-
-    <iframe id="mapa"
-        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d6630.061582575643!2d-101.71432388729497!3d21.152545397169142!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x842bc06e4e1d5a79%3A0x40248ea06dc675dc!2sUniversidad%20De%20La%20Salle%20Baj%C3%ADo%20Campus%20Campestre!5e0!3m2!1ses-419!2smx!4v1636664096882!5m2!1ses-419!2smx"
-        width="100%" height="450" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
-
 
     <div class="container-fluid bg-dark py-3" id="contact">
         <div class="container">
@@ -375,30 +373,34 @@
                 Sistemas de gestión y mantenimiento asistidos por computadora
                 CMMS
             </p>
-            <strong>
-                <h5 style="color: white; margin-top: -1rem;">Redes sociales</h5>
-            </strong>
 
             <div class="row">
-                <div class="col-md-3 col-12">
-                    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/0/05/Facebook_Logo_%282019%29.png/1024px-Facebook_Logo_%282019%29.png"
-                        style="width: 25px; height: 25px;">
-                    <a href="https://www.facebook.com/Red-Candle-Systems-105703391668402">Facebook</a>
+                <div>
+                    <strong>
+                        <h5 style="color: white; margin-top: -1rem;">Redes sociales</h5>
+                    </strong>
                 </div>
-                <div class="col-md-3 col-12">
-                    <img src="https://help.twitter.com/content/dam/help-twitter/brand/logo.png" alt=""
-                        style="width: 30px; height: 30px;">
-                    <a href="https://twitter.com/SystemsCandle">Twitter</a></div>
-                <div class="col-md-3 col-12">
-                    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/3/31/Blogger.svg/245px-Blogger.svg.png"
-                        alt="" style="width: 30px; height: 30px;">
-                    <a href="https://redcandlesystems.blogspot.com/2021/04/bms.html">BLOG</a></div>
-
-                <div class="col-md-3 col-12">
-                    <img src="http://assets.stickpng.com/images/580b57fcd9996e24bc43c521.png"
-                        style="width: 25px; height: 25px;">
-                    <a href="https://www.instagram.com/redcandlesystems/?hl=es-la">Instagram</a></div>
+                <div class="d-flex justify-content-center">
+                    <a class="m-2" href="https://www.facebook.com/Red-Candle-Systems-105703391668402"><img
+                            src="https://upload.wikimedia.org/wikipedia/commons/thumb/0/05/Facebook_Logo_%282019%29.png/1024px-Facebook_Logo_%282019%29.png"
+                            style="width: 25px; height: 25px;"></a>
+                    <a class="m-2" href="https://twitter.com/SystemsCandle"> <img
+                            src="https://help.twitter.com/content/dam/help-twitter/brand/logo.png" alt=""
+                            style="width: 30px; height: 30px;"></a>
+                    <a class="m-2" href="https://redcandlesystems.blogspot.com/2021/04/bms.html"> <img
+                            src="https://upload.wikimedia.org/wikipedia/commons/thumb/3/31/Blogger.svg/245px-Blogger.svg.png"
+                            alt="" style="width: 25px; height: 25px;"></a>
+                    <a class="m-2" href="https://www.instagram.com/redcandlesystems/?hl=es-la"><img
+                            src="http://assets.stickpng.com/images/580b57fcd9996e24bc43c521.png"
+                            style="width: 25px; height: 25px;"></a>
+                </div>
             </div>
+
+            <div class="row bg-white text-center p-3">
+                <p style="padding-top: 1rem;">ESTA ES UNA PAGINA DE PRACTICA</p>
+            </div>
+
+
 
         </div>
     </div>
@@ -440,7 +442,6 @@
     img {
         border-radius: 1rem;
         width: 100%;
-
     }
 
     #mapa {
@@ -459,7 +460,7 @@
     }
 
     p {
-        color: rgb(75, 75, 75);
+        color: rgb(161, 161, 161);
         padding-bottom: 0.5rem;
     }
 
@@ -518,21 +519,64 @@
         right: 0;
         background-color: rgba(0, 0, 0, 0.164);
         border-radius: 1rem;
-
     }
 
-    .fondo h1 {
-        color: #fff;
-        position: relative;
-        padding: 1rem;
-        margin-left: 2rem;
+
+    /* Estilos móvil/celular */
+    @media all and (min-width: 701px) {
+        .div-img-logo {
+            width: 110px;
+            height: 90px;
+            padding: 0.5rem;
+        }
+
+        .fondo h1 {
+            color: #fff;
+            position: relative;
+            padding: 1rem;
+            margin-left: 2rem;
+        }
+
+        .fondo h2 {
+            text-align: center;
+            color: #fff;
+            position: relative;
+            padding: 1rem;
+            margin-left: 2rem;
+        }
+
+
+
+        .title {
+            font-size: 30px;
+            margin-left: -1rem;
+        }
     }
 
-    .fondo h2 {
-        text-align: center;
-        color: #fff;
-        position: relative;
-        padding: 1rem;
-        margin-left: 2rem;
+    @media all and (max-width: 701px) {
+        .div-img-logo {
+            width: 70px;
+            height: auto;
+        }
+
+
+        .fondo h1 {
+            color: #fff;
+            position: relative;
+            padding: 0.5rem;
+        }
+
+        .fondo h2 {
+            text-align: center;
+            color: #fff;
+            position: relative;
+            padding: 1rem;
+            margin-left: 2rem;
+        }
+
+        .title {
+            font-size: 15px;
+            margin-left: -1rem;
+        }
     }
 </style>
